@@ -1,0 +1,15 @@
+{
+  "common.appName": "LANN",
+  "nav.home": "Home",
+  "theme.toggleLabel": "Toggle theme",
+  "theme.light": "Light",
+  "theme.dark": "Dark",
+  "theme.system": "System",
+  "language.toggleLabel": "Switch language",
+  "language.english": "English",
+  "language.burmese": "Burmese",
+  "footer.tagline": "A learner-first path from career discovery to career readiness.",
+  "footer.rights": "© {year} LANN. All rights reserved.",
+  "home.foundationTitle": "Technical foundation",
+  "home.foundationNotice": "This is the LANN application shell and design system foundation. Career, roadmap, resource, project, community, and AI mentor features are built in later phases."
+}
