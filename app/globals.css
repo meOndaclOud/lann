@@ -71,6 +71,24 @@
 
   --font-sans: var(--font-inter);
   --font-myanmar: var(--font-noto-sans-myanmar);
+
+  /* Radius scale (INSTRUCTIONS.md §7) — overrides Tailwind's defaults so
+     rounded-md/-lg/-xl stay centralized here instead of hardcoded per use. */
+  --radius-md: 0.625rem;
+  --radius-lg: 0.875rem;
+  --radius-xl: 1.25rem;
+
+  /* Shadow scale (INSTRUCTIONS.md §7) — softer than Tailwind's defaults to
+     keep the "calm, professional" feel from INSTRUCTIONS.md §8. */
+  --shadow-sm: 0 1px 2px 0 rgb(15 23 42 / 0.04);
+  --shadow-md: 0 4px 12px -2px rgb(15 23 42 / 0.08);
+  --shadow-lg: 0 12px 32px -8px rgb(15 23 42 / 0.16);
+}
+
+/* Restrained gradient accent (INSTRUCTIONS.md §15) — used sparingly, never
+   as a page-wide background. */
+:root {
+  --gradient-accent: linear-gradient(135deg, var(--primary), var(--accent));
 }
 
 body {

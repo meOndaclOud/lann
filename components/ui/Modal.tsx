@@ -1,5 +1,6 @@
 "use client";
 
+import { X } from "lucide-react";
 import { useEffect, useId, useRef, type ReactNode } from "react";
 
 import { cn } from "@/lib/utils/cn";
@@ -57,7 +58,7 @@ export function Modal({ open, onClose, title, children, className }: ModalProps)
           aria-label="Close"
           className="text-muted-foreground hover:text-foreground focus-visible:ring-primary rounded-md focus-visible:ring-2 focus-visible:outline-none"
         >
-          ✕
+          <X aria-hidden="true" className="size-5" />
         </button>
       </div>
       {children}

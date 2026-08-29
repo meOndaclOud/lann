@@ -1,5 +1,7 @@
 "use client";
 
+import { Languages } from "lucide-react";
+
 import { useLocale } from "@/components/locale/LocaleProvider";
 import { cn } from "@/lib/utils/cn";
 import type { Locale } from "@/types/locale";
@@ -18,6 +20,7 @@ export function LocaleToggle() {
       aria-label={t("language.toggleLabel")}
       className="border-border bg-muted inline-flex items-center gap-1 rounded-full border p-1"
     >
+      <Languages aria-hidden="true" className="text-muted-foreground ml-1.5 size-4" />
       {OPTIONS.map((option) => (
         <button
           key={option.locale}
