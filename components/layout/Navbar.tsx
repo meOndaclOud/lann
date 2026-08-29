@@ -25,9 +25,20 @@ export function Navbar() {
           {t("common.appName")}
         </Link>
 
-        <div className="hidden items-center gap-3 md:flex">
-          <LocaleToggle />
-          <ThemeToggle />
+        <div className="hidden items-center gap-6 md:flex">
+          <nav className="flex items-center gap-6">
+            <Link
+              href="/careers"
+              className="text-foreground/80 hover:text-foreground focus-visible:ring-primary rounded-md text-sm font-medium focus-visible:ring-2 focus-visible:outline-none"
+            >
+              {t("nav.careers")}
+            </Link>
+          </nav>
+
+          <div className="flex items-center gap-3">
+            <LocaleToggle />
+            <ThemeToggle />
+          </div>
         </div>
 
         <button
