@@ -1,4 +1,4 @@
-import type { MentorContext, MentorReply, MentorService } from '../types/mentor.ts'
+import type { MentorAttachment, MentorContext, MentorReply, MentorService } from '../types/mentor.ts'
 
 const SIMULATED_DELAY_MS = 700
 
@@ -11,9 +11,10 @@ function delay(ms: number): Promise<void> {
  * and always reports unavailable, without calling anything.
  */
 export const mockMentorService: MentorService = {
-  async sendMessage(message: string, context: MentorContext): Promise<MentorReply> {
+  async sendMessage(message: string, context: MentorContext, attachment?: MentorAttachment): Promise<MentorReply> {
     void message
     void context
+    void attachment
     await delay(SIMULATED_DELAY_MS)
     return { status: 'unavailable' }
   },
@@ -32,12 +33,12 @@ function isMentorReply(value: unknown): value is MentorReply {
  * than surfacing a raw error to the chat UI, per CLAUDE.md's AI Failure rule.
  */
 export const httpMentorService: MentorService = {
-  async sendMessage(message: string, context: MentorContext): Promise<MentorReply> {
+  async sendMessage(message: string, context: MentorContext, attachment?: MentorAttachment): Promise<MentorReply> {
     try {
       const response = await fetch('/api/mentor', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ message, context }),
+        body: JSON.stringify({ message, context, attachment }),
       })
 
       if (!response.ok) {

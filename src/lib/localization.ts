@@ -90,6 +90,7 @@ export interface Translations {
     sectionChallenges: string
     sectionMyanmar: string
     sectionRoles: string
+    sectionSpecializations: string
     chooseCta: string
     emptyNoAnswers: { title: string; description: string; cta: string }
     emptyNoMatches: { title: string; description: string; cta: string }
@@ -154,11 +155,18 @@ export interface Translations {
     eyebrow: string
     title: string
     subtitle: string
+    statusOnline: string
     greetingTitle: string
     greetingBody: string
     suggestedPrompts: string[]
     inputPlaceholder: string
     sendCta: string
+    attachCta: string
+    removeAttachmentCta: string
+    attachmentTooLarge: string
+    attachmentUnsupportedType: string
+    copyCta: string
+    copiedLabel: string
     unavailableLabel: string
     unavailable: string
     retryCta: string
@@ -229,7 +237,7 @@ export const translations: Record<'en' | 'my', Translations> = {
       },
     },
     community: {
-      pageTitle: 'Myanmar Tech Community',
+      pageTitle: 'Join the Community',
       pageSubtitle: 'Webinars, workshops, classes, and career opportunities from trusted Myanmar technology community pages.',
       filters: {
         latest: 'Latest',
@@ -276,7 +284,8 @@ export const translations: Record<'en' | 'my', Translations> = {
       sectionChallenges: 'What to expect',
       sectionMyanmar: 'Why it matters in Myanmar',
       sectionRoles: 'Possible roles',
-      chooseCta: 'Choose This Path',
+      sectionSpecializations: 'Specializations you could grow into',
+      chooseCta: 'Start Your Learning Path',
       emptyNoAnswers: {
         title: "Let's get to know you first",
         description: 'Complete Learner Voice so LANN can find careers that fit you.',
@@ -300,10 +309,10 @@ export const translations: Record<'en' | 'my', Translations> = {
       levelLabels: { beginner: 'Beginner', core: 'Core', intermediate: 'Intermediate', advanced: 'Advanced' },
       resourcesLabel: 'Learning Resources',
       resourceCategoryLabels: {
-        myanmarSeniorResources: 'From Myanmar Senior Technicians',
-        myanmarYoutubeChannels: 'Myanmar Tech Video Channels',
-        freeMyanmarResources: 'Free Resources in Myanmar',
-        burmeseDigitalBooks: 'Digital Books by Burmese Authors',
+        myanmarSeniorResources: 'Learn from Experts',
+        myanmarYoutubeChannels: 'Discover Creators',
+        freeMyanmarResources: 'Explore Resources',
+        burmeseDigitalBooks: 'Discover Books',
       },
       resourcesComingSoon:
         "We haven't verified any resources for this category yet. We'd rather leave this empty than point you somewhere unreliable — check back soon.",
@@ -366,6 +375,7 @@ export const translations: Record<'en' | 'my', Translations> = {
       eyebrow: 'Your AI Mentor',
       title: 'AI Mentor',
       subtitle: "Ask about your career path, your roadmap, or anything you're stuck on.",
+      statusOnline: 'Always here to help',
       greetingTitle: 'Hey, good to see you.',
       greetingBody:
         "I'm here to help with your learning journey — ask me anything about your career path, your roadmap, or something you're stuck on.",
@@ -377,6 +387,12 @@ export const translations: Record<'en' | 'my', Translations> = {
       ],
       inputPlaceholder: 'Ask your AI Mentor...',
       sendCta: 'Send',
+      attachCta: 'Attach a photo or file',
+      removeAttachmentCta: 'Remove attachment',
+      attachmentTooLarge: "That file's too large — please attach something under 4MB.",
+      attachmentUnsupportedType: 'Please attach an image (PNG, JPEG, WebP, GIF) or a PDF.',
+      copyCta: 'Copy',
+      copiedLabel: 'Copied',
       unavailableLabel: 'Temporarily unavailable',
       unavailable:
         "AI Mentor is temporarily unavailable right now. You can keep going with your roadmap and resources in the meantime — I'll be here when I'm back.",
@@ -402,7 +418,7 @@ export const translations: Record<'en' | 'my', Translations> = {
         },
         emptyCategory: "We haven't verified any resources in this category yet — check back soon.",
         creatorLabels: {
-          'myanmar-senior': 'Senior Myanmar Technologist',
+          'myanmar-senior': 'Meet the Experts',
           'myanmar-community': 'Myanmar Community',
           international: 'International',
           official: 'Official',
@@ -509,7 +525,8 @@ export const translations: Record<'en' | 'my', Translations> = {
       sectionChallenges: 'ဘာတွေ မျှော်လင့်ထားသင့်လဲ',
       sectionMyanmar: 'မြန်မာနိုင်ငံအတွက် ဘာကြောင့်အရေးကြီးလဲ',
       sectionRoles: 'ဖြစ်နိုင်ချေရှိသော အလုပ်အခန်းကဏ္ဍများ',
-      chooseCta: 'ဒီလမ်းကြောင်းကို ရွေးချယ်ရန်',
+      sectionSpecializations: 'ဆက်လက် ကြီးထွားနိုင်သော အထူးပြု နယ်ပယ်များ',
+      chooseCta: 'သင့် Learning Path ကို စတင်ရန်',
       emptyNoAnswers: {
         title: 'အရင် သင့်ကို လေ့လာကြရအောင်',
         description: 'LANN က သင့်နဲ့ ကိုက်ညီတဲ့ Career တွေ ရှာပေးနိုင်ဖို့ Learner Voice ကို အရင်ဖြည့်ပါ။',
@@ -608,6 +625,7 @@ export const translations: Record<'en' | 'my', Translations> = {
       eyebrow: 'သင့် AI Mentor',
       title: 'AI Mentor',
       subtitle: 'သင့် Career လမ်းကြောင်း၊ Roadmap (သို့) ခက်ခဲနေတဲ့အရာ တစ်ခုခုအကြောင်း မေးကြည့်ပါ။',
+      statusOnline: 'အမြဲတမ်း ကူညီဖို့ ဒီမှာ ရှိပါတယ်',
       greetingTitle: 'မင်္ဂလာပါ၊ တွေ့ရတာ ဝမ်းသာပါတယ်။',
       greetingBody:
         'သင့်ရဲ့ လေ့လာမှု ခရီးစဉ်မှာ ကူညီဖို့ ဒီမှာ ရှိပါတယ် — Career လမ်းကြောင်း၊ Roadmap (သို့) ခက်ခဲနေတဲ့ အရာတစ်ခုခုကို မေးကြည့်ပါ။',
@@ -619,6 +637,12 @@ export const translations: Record<'en' | 'my', Translations> = {
       ],
       inputPlaceholder: 'သင့် AI Mentor ကို မေးကြည့်ပါ...',
       sendCta: 'ပို့ရန်',
+      attachCta: 'ဓာတ်ပုံ (သို့) File တွဲရန်',
+      removeAttachmentCta: 'ဖယ်ရှားရန်',
+      attachmentTooLarge: 'ဒီ File က ကြီးလွန်းပါတယ် — 4MB အောက်ရှိတာကို တွဲပေးပါ။',
+      attachmentUnsupportedType: 'ဓာတ်ပုံ (PNG, JPEG, WebP, GIF) (သို့) PDF ကိုသာ တွဲပေးပါ။',
+      copyCta: 'ကူးယူရန်',
+      copiedLabel: 'ကူးယူပြီးပါပြီ',
       unavailableLabel: 'လောလောဆယ် မရရှိနိုင်ပါ',
       unavailable:
         'AI Mentor ကို လောလောဆယ် မရရှိနိုင်သေးပါ။ ဒီအတောအတွင်း Roadmap နဲ့ Resource တွေနဲ့ ဆက်လေ့လာနေနိုင်ပါတယ် — ပြန်ရောက်လာရင် ဒီမှာ ရှိပါမယ်။',

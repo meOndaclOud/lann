@@ -7,12 +7,13 @@ import { ChatInput } from '../components/mentor/ChatInput'
 import { useLanguage } from '../hooks/useLanguage'
 import { storage, STORAGE_KEYS } from '../lib/storage'
 import { mentorService } from '../lib/mentorService.ts'
+import { toMentorAttachment, type PendingAttachment } from '../lib/attachment.ts'
 import { completedTopicIdsFor, calculateOverallProgress, getCurrentStage } from '../lib/progress.ts'
 import { findRoadmap } from '../data/roadmaps.ts'
 import type { SelectedCareer, LearnerProgress } from '../types/learner'
 import type { LearnerAnswers } from '../types/assessment'
 import type { Language } from '../context/language-context.ts'
-import type { MentorContext, MentorMessage } from '../types/mentor.ts'
+import type { MentorAttachment, MentorContext, MentorMessage } from '../types/mentor.ts'
 
 function buildContext(language: Language): MentorContext {
   const selectedCareer = storage.getItem<SelectedCareer | null>(STORAGE_KEYS.selectedCareer, null)
@@ -40,6 +41,25 @@ function TypingIndicator() {
         <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[var(--color-text-muted)] [animation-delay:0ms]" />
         <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[var(--color-text-muted)] [animation-delay:150ms]" />
         <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[var(--color-text-muted)] [animation-delay:300ms]" />
+      </div>
+    </div>
+  )
+}
+
+function ChatHeader() {
+  const { dict } = useLanguage()
+
+  return (
+    <div className="flex shrink-0 items-center gap-3 border-b border-[var(--color-border)] px-5 py-3.5">
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-soft)] text-white shadow-sm">
+        <Sparkles size={18} />
+      </div>
+      <div className="min-w-0">
+        <p className="truncate text-sm font-semibold text-[var(--color-text)]">{dict.mentor.title}</p>
+        <p className="flex items-center gap-1.5 truncate text-xs text-[var(--color-text-muted)]">
+          <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
+          {dict.mentor.statusOnline}
+        </p>
       </div>
     </div>
   )
@@ -79,6 +99,7 @@ export function Mentor() {
   const { dict, language } = useLanguage()
   const [messages, setMessages] = useState<MentorMessage[]>([])
   const [input, setInput] = useState('')
+  const [attachment, setAttachment] = useState<PendingAttachment | null>(null)
   const [sending, setSending] = useState(false)
   const listRef = useRef<HTMLDivElement>(null)
 
@@ -86,10 +107,10 @@ export function Mentor() {
     listRef.current?.scrollTo({ top: listRef.current.scrollHeight, behavior: 'smooth' })
   }, [messages, sending])
 
-  async function requestReply(userContent: string) {
+  async function requestReply(userContent: string, mentorAttachment?: MentorAttachment) {
     setSending(true)
     try {
-      const reply = await mentorService.sendMessage(userContent, buildContext(language))
+      const reply = await mentorService.sendMessage(userContent, buildContext(language), mentorAttachment)
       if (reply.status === 'ok' && reply.message) {
         setMessages((prev) => [...prev, { id: crypto.randomUUID(), role: 'mentor', content: reply.message! }])
       } else {
@@ -101,6 +122,7 @@ export function Mentor() {
             content: dict.mentor.unavailable,
             unavailable: true,
             retryFor: userContent,
+            retryForAttachment: mentorAttachment,
           },
         ])
       }
@@ -113,6 +135,7 @@ export function Mentor() {
           content: dict.mentor.unavailable,
           unavailable: true,
           retryFor: userContent,
+          retryForAttachment: mentorAttachment,
         },
       ])
     } finally {
@@ -120,30 +143,53 @@ export function Mentor() {
     }
   }
 
-  function handleSend(content: string) {
-    const trimmed = content.trim()
-    if (!trimmed || sending) return
-    setMessages((prev) => [...prev, { id: crypto.randomUUID(), role: 'user', content: trimmed }])
+  function handleSend(content?: string) {
+    const trimmed = (content ?? input).trim()
+    if ((!trimmed && !attachment) || sending) return
+
+    const pendingAttachment = attachment
+    setMessages((prev) => [
+      ...prev,
+      {
+        id: crypto.randomUUID(),
+        role: 'user',
+        content: trimmed,
+        attachment: pendingAttachment
+          ? { name: pendingAttachment.file.name, mimeType: pendingAttachment.file.type, previewUrl: pendingAttachment.previewUrl }
+          : undefined,
+      },
+    ])
     setInput('')
-    void requestReply(trimmed)
+    setAttachment(null)
+
+    if (pendingAttachment) {
+      void toMentorAttachment(pendingAttachment).then((mentorAttachment) => requestReply(trimmed, mentorAttachment))
+    } else {
+      void requestReply(trimmed)
+    }
   }
 
   function handleRetry(message: MentorMessage) {
-    if (!message.retryFor || sending) return
+    if (!message.retryFor && !message.retryForAttachment) return
+    if (sending) return
     setMessages((prev) => prev.filter((candidate) => candidate.id !== message.id))
-    void requestReply(message.retryFor)
+    void requestReply(message.retryFor ?? '', message.retryForAttachment)
   }
 
   return (
-    <Container className="py-10 sm:py-14">
-      <div className="mx-auto max-w-2xl">
-        <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-primary)]">
+    <Container className="py-6 sm:py-14">
+      <div className="mx-auto max-w-2xl lg:max-w-3xl">
+        <p className="hidden text-xs font-semibold uppercase tracking-wide text-[var(--color-primary)] sm:block">
           {dict.mentor.eyebrow}
         </p>
-        <h1 className="mt-2 text-2xl font-semibold text-[var(--color-text)] sm:text-3xl">{dict.mentor.title}</h1>
-        <p className="mt-2 text-sm text-[var(--color-text-muted)]">{dict.mentor.subtitle}</p>
+        <h1 className="mt-2 hidden text-2xl font-semibold text-[var(--color-text)] sm:block sm:text-3xl">
+          {dict.mentor.title}
+        </h1>
+        <p className="mt-2 hidden text-sm text-[var(--color-text-muted)] sm:block">{dict.mentor.subtitle}</p>
 
-        <Card className="mt-6 flex h-[65vh] flex-col overflow-hidden !p-0 sm:h-[70vh]">
+        <Card className="flex h-[calc(100dvh-12rem)] flex-col overflow-hidden !p-0 sm:mt-6 sm:h-[70vh] lg:h-[75vh]">
+          <ChatHeader />
+
           <div ref={listRef} className="flex-1 space-y-4 overflow-y-auto p-5">
             {messages.length === 0 ? (
               <EmptyState onPromptClick={handleSend} />
@@ -156,7 +202,14 @@ export function Mentor() {
           </div>
 
           <div className="shrink-0 border-t border-[var(--color-border)] p-3">
-            <ChatInput value={input} onChange={setInput} onSend={() => handleSend(input)} disabled={sending} />
+            <ChatInput
+              value={input}
+              onChange={setInput}
+              attachment={attachment}
+              onAttachmentChange={setAttachment}
+              onSend={() => handleSend()}
+              disabled={sending}
+            />
           </div>
         </Card>
       </div>

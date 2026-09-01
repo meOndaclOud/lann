@@ -114,6 +114,19 @@ function MatchCard({ match, profile, rank, expanded, onToggle, onChoose }: Match
             <p className="mt-2 text-sm text-[var(--color-text)]">{profile.roles.join(' · ')}</p>
           </div>
 
+          {profile.specializations.length > 0 && (
+            <div className="mt-5">
+              <h3 className="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-muted)]">
+                {dict.assessmentResult.sectionSpecializations}
+              </h3>
+              <div className="mt-2 flex flex-wrap gap-2">
+                {profile.specializations.map((specialization) => (
+                  <Badge key={specialization.en}>{specialization[language]}</Badge>
+                ))}
+              </div>
+            </div>
+          )}
+
           <Button type="button" variant="primary" onClick={onChoose} className="mt-6">
             {dict.assessmentResult.chooseCta}
           </Button>

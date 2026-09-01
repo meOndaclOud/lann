@@ -13,9 +13,17 @@ export interface MentorContextInput {
   learnerDifficulties?: string | null
 }
 
+export interface MentorAttachmentInput {
+  /** e.g. 'image/png', 'image/jpeg', 'application/pdf'. */
+  mimeType: string
+  /** Base64-encoded file content, without the "data:...;base64," prefix. */
+  data: string
+}
+
 export interface MentorRequestBody {
   message: string
   context?: MentorContextInput
+  attachment?: MentorAttachmentInput
 }
 
 export type MentorReplyResult = { status: 'ok'; message: string } | { status: 'unavailable' }

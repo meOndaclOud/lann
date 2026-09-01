@@ -1,4 +1,4 @@
-import type { MentorContextInput, MentorReplyResult } from './types.ts'
+import type { MentorAttachmentInput, MentorContextInput, MentorReplyResult } from './types.ts'
 
 const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.6-flash'
 const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`
@@ -21,6 +21,8 @@ You help with exactly these kinds of questions:
 For learning and troubleshooting questions, don't dump the full answer immediately. Follow this sequence: Explain the concept -> give a Hint -> give an Example -> only then the full Solution if the learner still needs it.
 
 Never invent or recommend a specific course, video, book, Telegram channel, or named instructor/author unless you are certain it is real. If you don't have a verified resource to point to, say so honestly instead of making one up.
+
+A learner may attach a photo or file (a screenshot of code, an error message, a diagram, a document). Look at it carefully and respond to what it actually shows.
 
 Career fit is guidance, not a guarantee — never tell a learner a path is "definitely" or "guaranteed" right for them.
 
@@ -66,7 +68,22 @@ function extractText(data: unknown): string | null {
   return typeof text === 'string' && text.trim().length > 0 ? text : null
 }
 
-async function callGemini(apiKey: string, message: string, context: MentorContextInput | undefined): Promise<string> {
+function buildUserParts(message: string, attachment: MentorAttachmentInput | undefined): unknown[] {
+  const parts: unknown[] = []
+  if (attachment) {
+    parts.push({ inlineData: { mimeType: attachment.mimeType, data: attachment.data } })
+  }
+  const text = message.trim().length > 0 ? message : 'Take a look at what I attached and help me understand it.'
+  parts.push({ text })
+  return parts
+}
+
+async function callGemini(
+  apiKey: string,
+  message: string,
+  context: MentorContextInput | undefined,
+  attachment: MentorAttachmentInput | undefined,
+): Promise<string> {
   const response = await fetch(GEMINI_API_URL, {
     method: 'POST',
     headers: {
@@ -75,7 +92,7 @@ async function callGemini(apiKey: string, message: string, context: MentorContex
     },
     body: JSON.stringify({
       systemInstruction: { parts: [{ text: buildSystemPrompt(context) }] },
-      contents: [{ role: 'user', parts: [{ text: message }] }],
+      contents: [{ role: 'user', parts: buildUserParts(message, attachment) }],
       generationConfig: { maxOutputTokens: MAX_OUTPUT_TOKENS },
     }),
   })
@@ -105,6 +122,7 @@ async function callGemini(apiKey: string, message: string, context: MentorContex
 export async function getMentorReply(
   message: string,
   context: MentorContextInput | undefined,
+  attachment?: MentorAttachmentInput,
 ): Promise<MentorReplyResult> {
   const apiKey = process.env.GEMINI_API_KEY
 
@@ -113,7 +131,7 @@ export async function getMentorReply(
   }
 
   try {
-    const text = await callGemini(apiKey, message, context)
+    const text = await callGemini(apiKey, message, context, attachment)
     return { status: 'ok', message: text }
   } catch (error) {
     // Server-side only — never sent to the client, just useful for diagnosing
