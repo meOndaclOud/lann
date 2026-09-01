@@ -26,6 +26,17 @@ export interface MentorRequestBody {
   attachment?: MentorAttachmentInput
 }
 
-export type MentorReplyResult = { status: 'ok'; message: string } | { status: 'unavailable' }
+/**
+ * Why a reply came back unavailable — never shown to the learner (the chat
+ * UI keeps its one generic, friendly message per CLAUDE.md's AI Failure
+ * rule), but surfaced to the browser console and Vercel function logs so a
+ * developer can tell "no API key configured" apart from "Gemini rejected
+ * the request" apart from "the network call itself failed" without guessing.
+ */
+export type MentorUnavailableReason = 'missing-api-key' | 'upstream-http-error' | 'upstream-empty-response' | 'network-error'
+
+export type MentorReplyResult =
+  | { status: 'ok'; message: string }
+  | { status: 'unavailable'; reason: MentorUnavailableReason; upstreamStatus?: number }
 
 export type MentorResponseBody = MentorReplyResult | { error: string }

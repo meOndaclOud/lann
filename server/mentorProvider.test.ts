@@ -37,7 +37,7 @@ describe('getMentorReply', () => {
 
     const result = await getMentorReply('Hello', undefined)
 
-    assert.deepEqual(result, { status: 'unavailable' })
+    assert.deepEqual(result, { status: 'unavailable', reason: 'missing-api-key' })
     assert.equal(fetchCalled, false)
   })
 
@@ -94,12 +94,12 @@ describe('getMentorReply', () => {
     assert.equal(capturedMessage, 'What should I learn next?')
   })
 
-  test('returns unavailable when the API responds with a non-2xx status', async () => {
+  test('returns unavailable with the upstream status when the API responds with a non-2xx status', async () => {
     mockFetchOnce(() => jsonResponse(401, { error: { message: 'API key not valid' } }))
 
     const result = await getMentorReply('Hello', undefined)
 
-    assert.deepEqual(result, { status: 'unavailable' })
+    assert.deepEqual(result, { status: 'unavailable', reason: 'upstream-http-error', upstreamStatus: 401 })
   })
 
   test('returns unavailable when the response has no usable text content', async () => {
@@ -107,7 +107,7 @@ describe('getMentorReply', () => {
 
     const result = await getMentorReply('Hello', undefined)
 
-    assert.deepEqual(result, { status: 'unavailable' })
+    assert.deepEqual(result, { status: 'unavailable', reason: 'upstream-empty-response' })
   })
 
   test('returns unavailable when fetch itself throws (network error)', async () => {
@@ -117,6 +117,6 @@ describe('getMentorReply', () => {
 
     const result = await getMentorReply('Hello', undefined)
 
-    assert.deepEqual(result, { status: 'unavailable' })
+    assert.deepEqual(result, { status: 'unavailable', reason: 'network-error' })
   })
 })

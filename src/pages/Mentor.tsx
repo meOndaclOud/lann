@@ -114,6 +114,8 @@ export function Mentor() {
       if (reply.status === 'ok' && reply.message) {
         setMessages((prev) => [...prev, { id: crypto.randomUUID(), role: 'mentor', content: reply.message! }])
       } else {
+        // Diagnostic only — never shown in the chat UI (see dict.mentor.unavailable below).
+        console.warn('[AI Mentor] unavailable:', reply.reason, reply.upstreamStatus ?? '')
         setMessages((prev) => [
           ...prev,
           {
@@ -126,7 +128,9 @@ export function Mentor() {
           },
         ])
       }
-    } catch {
+    } catch (error) {
+      // Defensive only — mentorService.sendMessage is documented to never throw.
+      console.warn('[AI Mentor] unavailable: unexpected-client-error', error)
       setMessages((prev) => [
         ...prev,
         {

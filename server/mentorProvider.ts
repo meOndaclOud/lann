@@ -1,4 +1,16 @@
-import type { MentorAttachmentInput, MentorContextInput, MentorReplyResult } from './types.ts'
+import type { MentorAttachmentInput, MentorContextInput, MentorReplyResult, MentorUnavailableReason } from './types.ts'
+
+/** Carries a specific diagnostic reason through the catch block in getMentorReply. */
+class MentorUpstreamError extends Error {
+  reason: MentorUnavailableReason
+  upstreamStatus?: number
+
+  constructor(message: string, reason: MentorUnavailableReason, upstreamStatus?: number) {
+    super(message)
+    this.reason = reason
+    this.upstreamStatus = upstreamStatus
+  }
+}
 
 const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.6-flash'
 const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`
@@ -99,7 +111,11 @@ async function callGemini(
 
   if (!response.ok) {
     const errorBody = await response.text().catch(() => '')
-    throw new Error(`Gemini API responded with ${response.status}: ${errorBody}`)
+    throw new MentorUpstreamError(
+      `Gemini API responded with ${response.status}: ${errorBody}`,
+      'upstream-http-error',
+      response.status,
+    )
   }
 
   const data: unknown = await response.json()
@@ -108,7 +124,7 @@ async function callGemini(
   }
   const text = extractText(data)
   if (!text) {
-    throw new Error('Gemini API returned no usable text content')
+    throw new MentorUpstreamError('Gemini API returned no usable text content', 'upstream-empty-response')
   }
   return text
 }
@@ -117,7 +133,8 @@ async function callGemini(
  * The only function in this codebase that knows an AI provider exists.
  * Never throws — a missing key or a failed upstream call both resolve to
  * `{ status: 'unavailable' }` per CLAUDE.md's AI Failure rule, so the rest
- * of the app never has to special-case "the AI broke."
+ * of the app never has to special-case "the AI broke." The `reason` on that
+ * result is a diagnostic code, never shown to the learner — see types.ts.
  */
 export async function getMentorReply(
   message: string,
@@ -127,7 +144,12 @@ export async function getMentorReply(
   const apiKey = process.env.GEMINI_API_KEY
 
   if (!apiKey) {
-    return { status: 'unavailable' }
+    // The single most common cause of "works locally, unavailable in
+    // production": GEMINI_API_KEY isn't set for the Vercel Production
+    // environment (a dashboard setting — .env files are never deployed),
+    // or it was added after the last deployment and needs a fresh deploy.
+    console.error('[mentor] GEMINI_API_KEY is not set in this environment — check Vercel Project Settings > Environment Variables (Production).')
+    return { status: 'unavailable', reason: 'missing-api-key' }
   }
 
   try {
@@ -137,6 +159,11 @@ export async function getMentorReply(
     // Server-side only — never sent to the client, just useful for diagnosing
     // upstream failures (bad key, quota, wrong model name, etc.) from logs.
     console.error('[mentor] Gemini API call failed:', error instanceof Error ? error.message : error)
-    return { status: 'unavailable' }
+    if (error instanceof MentorUpstreamError) {
+      return error.upstreamStatus === undefined
+        ? { status: 'unavailable', reason: error.reason }
+        : { status: 'unavailable', reason: error.reason, upstreamStatus: error.upstreamStatus }
+    }
+    return { status: 'unavailable', reason: 'network-error' }
   }
 }

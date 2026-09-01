@@ -35,10 +35,30 @@ export interface MentorContext {
 
 export type MentorReplyStatus = 'ok' | 'unavailable'
 
+/**
+ * Why a reply came back unavailable — a diagnostic code, never shown to the
+ * learner (the chat UI keeps one generic, friendly message). Logged to the
+ * browser console instead, so "why is this unavailable" is answerable from
+ * devtools alone: a missing server API key, Gemini rejecting the request,
+ * our own /api/mentor route failing or not existing (e.g. a 404 means it
+ * wasn't deployed as expected), or the network call itself failing.
+ */
+export type MentorUnavailableReason =
+  | 'missing-api-key'
+  | 'upstream-http-error'
+  | 'upstream-empty-response'
+  | 'network-error'
+  | 'client-network-error'
+  | 'client-invalid-response'
+  | `client-http-${number}`
+
 export interface MentorReply {
   status: MentorReplyStatus
   /** Present only when status is 'ok'. */
   message?: string
+  /** Present only when status is 'unavailable'. */
+  reason?: MentorUnavailableReason
+  upstreamStatus?: number
 }
 
 /**
