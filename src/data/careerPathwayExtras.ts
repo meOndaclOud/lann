@@ -316,4 +316,205 @@ export const careerPathwayExtras: CareerProfile[] = [
       my: 'Software သည် ရှုပ်ထွေးပြီး အထူးပြု လုပ်ငန်းများတွင် ပိုဗဟိုကျလာသည်နှင့်အမျှ Technical Implementation နှင့် တကယ့် Client ပြဿနာများကို ချိတ်ဆက်ပေးနိုင်သော Engineer များ လိုအပ်ချက် ဆက်လက် ကြီးထွားလိမ့်မည်ဟု ယူဆရပါတယ်။',
     },
   },
+  {
+    id: 'prompt-engineer',
+    slug: 'prompt-engineer',
+    name: 'Prompt Engineering',
+    nameMy: 'Prompt Engineering',
+    shortDescription: {
+      en: 'Design, test, and refine the instructions and interactions that get reliable, useful results out of AI language models.',
+      my: 'AI Language Model များထံမှ ယုံကြည်စိတ်ချရ၊ အသုံးဝင်သော ရလဒ်များ ရရှိစေရန် ညွှန်ကြားချက်နှင့် အပြန်အလှန် ဆက်သွယ်မှုများကို ဒီဇိုင်းရေး၊ စမ်းသပ်ပြီး ပြန်လည်ပြင်ဆင်သည်။',
+    },
+    internationalContext: {
+      en: "As generative AI tools spread across nearly every industry, the ability to reliably get good results from them has become a genuinely valuable, in-demand skill on its own — though it's also increasingly folded into broader AI engineering and product roles.",
+      my: 'Generative AI Tool များ လုပ်ငန်းနီးပါးအားလုံးတွင် ပျံ့နှံ့လာသည်နှင့်အမျှ ၎င်းတို့ထံမှ ရလဒ်ကောင်းများ ယုံကြည်စိတ်ချစွာ ရယူနိုင်စွမ်းသည် ကိုယ်တိုင်ပင် တန်ဖိုးရှိပြီး လိုအပ်သော ကျွမ်းကျင်မှုတစ်ခု ဖြစ်လာပါတယ် — သို့သော် ကျယ်ပြန့်သော AI Engineering နှင့် Product Role များထဲသို့ တဖြည်းဖြည်း ပေါင်းစည်းလာနေတာလည်း ဖြစ်ပါတယ်။',
+    },
+    myanmarContext: {
+      en: "This is a very new role in Myanmar, more commonly practiced as a skill within another job — support, content, product — than hired as a dedicated title, but it's a genuinely accessible way to start working with AI.",
+      my: 'ဒါက မြန်မာနိုင်ငံတွင် အလွန်အသစ်သော အလုပ်တစ်ခု ဖြစ်ပြီး ခန့်အပ်ထားသော ရာထူးတစ်ခုအဖြစ်ထက် တခြားအလုပ်တစ်ခု (Support, Content, Product) ထဲရှိ ကျွမ်းကျင်မှုတစ်ခုအဖြစ် ပိုမို အသုံးများပါတယ် — သို့သော် AI နှင့် စတင်လုပ်ဆောင်ရန် တကယ့် ရရှိနိုင်သော နည်းလမ်းတစ်ခု ဖြစ်ပါတယ်။',
+    },
+    roles: ['Prompt Engineer', 'AI Interaction Designer', 'LLM Application Specialist'],
+    skills: [
+      { en: 'Clear, precise written communication', my: 'ရှင်းလင်း၊ တိကျသော ရေးသားဆက်သွယ်နိုင်မှု' },
+      { en: 'Curiosity about how language models respond to different phrasing', my: 'Language Model များ စကားလုံးအမျိုးမျိုးအပေါ် မည်သို့ တုံ့ပြန်သည်ကို စူးစမ်းလိုစိတ်' },
+      { en: 'Patience with trial and error', my: 'ထပ်ခါထပ်ခါ စမ်းသပ်ရန် သည်းခံနိုင်မှု' },
+      { en: 'Careful, honest evaluation of AI outputs', my: 'AI Output များကို သေချာ၍ ရိုးသားစွာ အကဲဖြတ်နိုင်မှု' },
+    ],
+    challenges: [
+      {
+        en: 'The field is very new and still defining itself — job titles and expectations vary a lot between companies.',
+        my: 'ဒီနယ်ပယ်က အလွန်အသစ်ဖြစ်ပြီး ကိုယ့်ကိုယ်ကို ဆက်လက် သတ်မှတ်နေဆဲဖြစ်တာကြောင့် Job Title နှင့် မျှော်လင့်ချက်များသည် ကုမ္ပဏီအလိုက် များစွာ ကွဲပြားပါတယ်။',
+      },
+      {
+        en: 'AI models update often, so techniques that work well today may need adjusting tomorrow.',
+        my: 'AI Model များက မကြာခဏ Update ဖြစ်နေတာကြောင့် ယနေ့ ကောင်းစွာ အလုပ်ဖြစ်သော Technique များကို မနက်ဖြန် ချိန်ညှိရန် လိုအပ်နိုင်ပါတယ်။',
+      },
+      {
+        en: "It's most valuable when paired with real domain knowledge or a related technical skill, rather than as a standalone skill alone.",
+        my: 'ကိုယ်ပိုင် ကျွမ်းကျင်မှုတစ်ခုတည်းအနေနှင့်ထက် တကယ့် Domain Knowledge (သို့) ဆက်စပ် Technical Skill တစ်ခုနှင့် တွဲထားသောအခါ ပိုတန်ဖိုးရှိပါတယ်။',
+      },
+    ],
+    whatTheyDo: {
+      en: 'Crafts, tests, and refines the instructions given to AI language models — and often builds the surrounding systems — to get consistent, useful, and safe results for a specific application.',
+      my: 'သီးခြား Application တစ်ခုအတွက် တသမတ်တည်း၊ အသုံးဝင်ပြီး ဘေးကင်းသော ရလဒ်များ ရရှိစေရန် AI Language Model များထံသို့ ပေးသော ညွှန်ကြားချက်များကို ဖန်တီး၊ စမ်းသပ်ပြီး ပြန်လည်ပြင်ဆင်သည် — ပတ်ဝန်းကျင် System များကိုပါ မကြာခဏ တည်ဆောက်ပေးသည်။',
+    },
+    responsibilities: [
+      { en: 'Writing and iterating on prompts for a specific use case', my: 'Use Case သီးခြားတစ်ခုအတွက် Prompt များ ရေးသားပြီး ထပ်ခါထပ်ခါ ပြင်ဆင်ခြင်း' },
+      { en: 'Testing AI outputs for accuracy, safety, and consistency', my: 'AI Output များကို တိကျမှု၊ ဘေးကင်းမှုနှင့် တသမတ်တည်း ဖြစ်မှုအတွက် စမ်းသပ်ခြင်း' },
+      { en: 'Documenting what works and building reusable prompt patterns', my: 'အလုပ်ဖြစ်သည့်အရာများ မှတ်တမ်းတင်ပြီး ပြန်သုံးနိုင်သော Prompt Pattern များ တည်ဆောက်ခြင်း' },
+      { en: 'Working with developers to integrate prompts into real applications', my: 'Prompt များကို Application အစစ်များထဲသို့ ပေါင်းစပ်ရန် Developer များနှင့် လုပ်ဆောင်ခြင်း' },
+    ],
+    whereUsed: {
+      en: 'Increasingly found at companies building AI-powered features — customer support tools, content platforms, coding assistants, and internal AI tools — though often as part of a broader AI or product role.',
+      my: 'AI-powered Feature များ (Customer Support Tool, Content Platform, Coding Assistant, Internal AI Tool) တည်ဆောက်နေသော ကုမ္ပဏီများတွင် တဖြည်းဖြည်း တွေ့ရများလာပါတယ် — သို့သော် ကျယ်ပြန့်သော AI (သို့) Product Role တစ်ခု၏ အစိတ်အပိုင်းအဖြစ် မကြာခဏ ရှိလေ့ ရှိပါတယ်။',
+    },
+    suitableFor: {
+      en: "People who enjoy language and precision, like experimenting until something works well, and are curious about how AI models actually 'think.'",
+      my: 'ဘာသာစကားနှင့် တိကျမှုကို နှစ်သက်ပြီး တစ်ခုခု ကောင်းစွာ အလုပ်ဖြစ်အောင် စမ်းသပ်ရတာ ကြိုက်ကာ AI Model များ တကယ် "ဘယ်လိုတွေးတယ်" ဆိုတာကို စူးစမ်းလိုသူများအတွက် သင့်လျော်ပါတယ်။',
+    },
+    difficulty: 'beginner-friendly',
+    prerequisiteKnowledge: [
+      { en: 'Comfort writing clearly and precisely', my: 'ရှင်းလင်း၊ တိကျစွာ ရေးသားနိုင်မှု' },
+      {
+        en: 'Basic familiarity with how AI chat tools work helps, but can be learned quickly',
+        my: 'AI Chat Tool များ အလုပ်လုပ်ပုံ အခြေခံ ရင်းနှီးမှုက အထောက်အကူဖြစ်သော်လည်း လျင်မြန်စွာ လေ့လာနိုင်ပါတယ်',
+      },
+    ],
+    progression: {
+      en: 'AI Power User → Prompt Engineer → Senior Prompt Engineer / AI Product Specialist → AI Engineer or Product Lead. Many people use this as an accessible entry point into the broader AI field.',
+      my: 'AI Power User → Prompt Engineer → Senior Prompt Engineer / AI Product Specialist → AI Engineer (သို့) Product Lead။ လူများစွာက ဒါကို ကျယ်ပြန့်သော AI နယ်ပယ်ထဲသို့ ဝင်ရောက်ရန် ရရှိနိုင်သော Entry Point တစ်ခုအဖြစ် သုံးကြပါတယ်။',
+    },
+    specializations: [
+      { en: 'Conversational AI Design', my: 'Conversational AI Design' },
+      { en: 'AI Content & Copywriting', my: 'AI Content & Copywriting' },
+      { en: 'LLM Application Development', my: 'LLM Application Development' },
+      { en: 'AI Safety & Evaluation', my: 'AI Safety & Evaluation' },
+    ],
+    signals: [],
+    salaryRange: {
+      en: 'Roughly $45,000–$140,000+ per year globally when hired as a dedicated role — figures vary enormously since the title is still new and inconsistently defined.',
+      my: 'ခန့်အပ်ထားသော အလုပ်တစ်ခုအနေနှင့် ကမ္ဘာတစ်ဝှမ်း နှစ်စဉ် ခန့်မှန်း $45,000–$140,000+ ခန့် — Title က အသစ်ဖြစ်ပြီး တသမတ်မတည်ဘဲ အနက်ဖွင့်ဆိုနေဆဲဖြစ်တာကြောင့် ကိန်းဂဏန်းများ အလွန်ကွာခြားပါတယ်။',
+    },
+    demand: {
+      en: "Growing quickly as more products add AI features, though it's often absorbed into other job titles rather than posted as a standalone role.",
+      my: 'Product များစွာက AI Feature ထပ်ထည့်လာသည်နှင့်အမျှ လျင်မြန်စွာ ကြီးထွားနေပါတယ် — သို့သော် သီးခြား Role တစ်ခုအဖြစ် ကြေညာမည့်အစား တခြား Job Title များထဲသို့ မကြာခဏ ရောနှောသွားလေ့ ရှိပါတယ်။',
+    },
+    competitiveness: {
+      en: 'Relatively low as a starting point, since the barrier to entry is low — but standing out long-term usually means pairing it with a deeper AI, product, or domain skill.',
+      my: 'အစပြုရန် Barrier နိမ့်တာကြောင့် အစပြုချက်အနေဖြင့် အလယ်အလတ်ထက် နိမ့်ပါတယ် — သို့သော် ရေရှည်တွင် ထူးခြားရန် ပုံမှန်အားဖြင့် ပိုနက်ရှိုင်းသော AI, Product (သို့) Domain ကျွမ်းကျင်မှုတစ်ခုနှင့် တွဲရန် လိုအပ်ပါတယ်။',
+    },
+    careerOpportunities: {
+      en: 'Currently more common as an added skill within another role than as a dedicated job posting, though dedicated openings are growing at AI-focused companies.',
+      my: 'လက်ရှိတွင် သီးခြား Job Posting တစ်ခုအဖြစ်ထက် တခြား Role တစ်ခုအတွင်း ထပ်ထည့်ထားသော ကျွမ်းကျင်မှုတစ်ခုအဖြစ် ပိုအသုံးများပါတယ် — သို့သော် AI-focused ကုမ္ပဏီများတွင် သီးခြား Opening များ ကြီးထွားနေပါတယ်။',
+    },
+    industries: [
+      { en: 'Technology & software', my: 'နည်းပညာနှင့် Software' },
+      { en: 'Customer support & service platforms', my: 'Customer Support & Service Platform များ' },
+      { en: 'Content & marketing', my: 'Content နှင့် Marketing' },
+      { en: 'Education technology', my: 'ပညာရေးနည်းပညာ' },
+    ],
+    futureOutlook: {
+      en: 'As AI models improve, the exact techniques will keep changing — but the underlying skill of clearly directing an AI system toward a useful, safe outcome is likely to stay relevant, even as it blends into broader AI roles.',
+      my: 'AI Model များ ပိုကောင်းလာသည်နှင့်အမျှ တိကျသော Technique များ ဆက်လက် ပြောင်းလဲနေမည်ဖြစ်ပေမယ့် AI System တစ်ခုကို အသုံးဝင်၊ ဘေးကင်းသော ရလဒ်ဆီသို့ ရှင်းလင်းစွာ ဦးတည်ပေးနိုင်စွမ်း အခြေခံ ကျွမ်းကျင်မှုသည် ကျယ်ပြန့်သော AI Role များထဲသို့ ရောနှောသွားသော်လည်း ဆက်လက် သက်ဆိုင်နေဖွယ်ရှိပါတယ်။',
+    },
+  },
+  {
+    id: 'solution-architect',
+    slug: 'solution-architect',
+    name: 'Solution Architecture',
+    nameMy: 'Solution Architecture',
+    shortDescription: {
+      en: 'Design the overall technical structure of a system or product, making sure all the pieces fit together and meet real business needs.',
+      my: 'System (သို့) Product တစ်ခု၏ အပြည့်အစုံ Technical ဖွဲ့စည်းပုံကို ဒီဇိုင်းရေး၍ အစိတ်အပိုင်းအားလုံး တစ်ခုနှင့်တစ်ခု ကိုက်ညီပြီး တကယ့် Business လိုအပ်ချက်များနှင့် ကိုက်ညီစေသည်။',
+    },
+    internationalContext: {
+      en: 'As systems grow more complex and involve more teams, companies worldwide rely on solution architects to make sure the big picture actually holds together — this is typically a senior role built on years of hands-on engineering experience.',
+      my: 'System များ ပိုရှုပ်ထွေးပြီး Team များစွာ ပါဝင်လာသည်နှင့်အမျှ ကမ္ဘာတစ်ဝှမ်းရှိ ကုမ္ပဏီများသည် ပုံကြီး တကယ် ကိုက်ညီနေကြောင်း သေချာစေရန် Solution Architect များအပေါ် မှီခိုကြသည် — ဒါက ပုံမှန်အားဖြင့် နှစ်ပေါင်းများစွာ လက်တွေ့ Engineering အတွေ့အကြုံအပေါ် တည်ဆောက်ထားသော Senior Role တစ်ခု ဖြစ်ပါတယ်။',
+    },
+    myanmarContext: {
+      en: 'This role is still relatively rare in Myanmar, most commonly found at larger local enterprises or international companies with a local presence — a long-term goal more than an early step.',
+      my: 'ဒီအလုပ်သည် မြန်မာနိုင်ငံတွင် ဆက်လက် ရှားရှားပါးပါး ရှိပါတယ် — ပြည်တွင်း လုပ်ငန်းကြီးများ (သို့) ပြည်တွင်း ရှိနေသော နိုင်ငံတကာ ကုမ္ပဏီများတွင် အများဆုံး တွေ့ရပါတယ် — အစောပိုင်း ခြေလှမ်းတစ်ခုထက် ရေရှည် ပန်းတိုင်တစ်ခု ဖြစ်ပါတယ်။',
+    },
+    roles: ['Solution Architect', 'Solutions Architect', 'Technical Architect'],
+    skills: [
+      { en: 'Big-picture systems thinking', my: 'ပုံကြီး System တွေးခေါ်နိုင်မှု' },
+      { en: 'Strong communication with both technical and business stakeholders', my: 'Technical နှင့် Business Stakeholder နှစ်ဖက်စလုံးနှင့် ခိုင်မာစွာ ဆက်သွယ်ပြောဆိုနိုင်မှု' },
+      { en: 'Weighing trade-offs between cost, complexity, and reliability', my: 'ကုန်ကျစရိတ်၊ ရှုပ်ထွေးမှုနှင့် ယုံကြည်စိတ်ချရမှုအကြား ချိန်ဆနိုင်မှု' },
+      { en: 'Deep, broad technical experience across systems', my: 'System များတစ်လျှောက် နက်ရှိုင်း၍ ကျယ်ပြန့်သော Technical အတွေ့အကြုံ' },
+    ],
+    challenges: [
+      {
+        en: "This is a senior role that almost always requires years of hands-on engineering experience first — it's not typically a first or early job.",
+        my: 'ဒါက ပထမဆုံး (သို့) အစောပိုင်း အလုပ်တစ်ခု ပုံမှန်အားဖြင့် မဟုတ်ဘဲ လက်တွေ့ Engineering အတွေ့အကြုံ နှစ်ပေါင်းများစွာ အရင်ဆုံး လိုအပ်သော Senior Role တစ်ခု ဖြစ်ပါတယ်။',
+      },
+      {
+        en: 'Decisions made here affect many teams, so getting them wrong has a bigger ripple effect than an individual coding mistake.',
+        my: 'ဒီနေရာမှာ ချမှတ်သော ဆုံးဖြတ်ချက်များသည် Team များစွာကို သက်ရောက်စေတာကြောင့် မှားယွင်းပါက တစ်ဦးချင်း Coding အမှားတစ်ခုထက် ရိုက်ခတ်မှု ပိုကြီးမားပါတယ်။',
+      },
+      {
+        en: 'Requires staying broadly current across many technologies rather than going deep in just one.',
+        my: 'တစ်ခုတည်းမှာ နက်ရှိုင်းစွာ ဝင်ရောက်မည့်အစား နည်းပညာများစွာတစ်လျှောက် ကျယ်ပြန့်စွာ နောက်ဆုံးအခြေအနေနှင့် မှီအောင် ရှိနေရန် လိုအပ်ပါတယ်။',
+      },
+    ],
+    whatTheyDo: {
+      en: 'Designs the overall technical structure of a system — deciding how components fit together, evaluating trade-offs, and making sure a solution actually meets business and technical requirements.',
+      my: 'System တစ်ခု၏ အပြည့်အစုံ Technical ဖွဲ့စည်းပုံကို ဒီဇိုင်းရေးသည် — အစိတ်အပိုင်းများ မည်သို့ ကိုက်ညီသည်ကို ဆုံးဖြတ်ပြီး Trade-off များ အကဲဖြတ်ကာ Solution တစ်ခုသည် Business နှင့် Technical Requirement များနှင့် တကယ် ကိုက်ညီကြောင်း သေချာစေသည်။',
+    },
+    responsibilities: [
+      { en: 'Designing high-level system and integration architecture', my: 'အဆင့်မြင့် System နှင့် Integration Architecture ဒီဇိုင်းရေးဆွဲခြင်း' },
+      { en: 'Evaluating and choosing technologies for a given problem', my: 'ပြဿနာတစ်ခုအတွက် နည်းပညာများ အကဲဖြတ်ပြီး ရွေးချယ်ခြင်း' },
+      { en: 'Communicating technical plans to both engineers and business stakeholders', my: 'Technical Plan များကို Engineer နှင့် Business Stakeholder နှစ်ဖက်စလုံးထံ ဆက်သွယ်ပြောပြခြင်း' },
+      { en: 'Guiding engineering teams through implementation', my: 'Implementation တစ်လျှောက် Engineering Team များကို လမ်းညွှန်ခြင်း' },
+    ],
+    whereUsed: {
+      en: 'Common at larger enterprises, consulting firms, and cloud-heavy organizations where system complexity and cross-team coordination make architectural planning essential.',
+      my: 'System ရှုပ်ထွေးမှုနှင့် Team အချင်းချင်း ညှိနှိုင်းမှုများကြောင့် Architectural Planning မရှိမဖြစ် ဖြစ်နေသော လုပ်ငန်းကြီးများ၊ Consulting Firm များနှင့် Cloud-heavy အဖွဲ့အစည်းများတွင် အသုံးများသည်။',
+    },
+    suitableFor: {
+      en: 'Experienced engineers who enjoy zooming out to see the whole system, like translating between technical and business language, and are comfortable making high-stakes trade-off decisions.',
+      my: 'System တစ်ခုလုံးကို ကျယ်ကျယ်ပြန့်ပြန့် မြင်ရတာ နှစ်သက်ပြီး Technical နှင့် Business ဘာသာစကားအကြား ဘာသာပြန်ရတာ ကြိုက်ကာ အန္တရာယ်များသော Trade-off ဆုံးဖြတ်ချက်များ ချရတာကို အဆင်ပြေသော အတွေ့အကြုံရှိ Engineer များအတွက် သင့်လျော်ပါတယ်။',
+    },
+    difficulty: 'challenging',
+    prerequisiteKnowledge: [
+      { en: 'Several years of hands-on software or infrastructure engineering experience', my: 'Software (သို့) Infrastructure Engineering တွင် နှစ်ပေါင်းများစွာ လက်တွေ့ အတွေ့အကြုံ' },
+      { en: 'Broad familiarity across multiple technologies, not just one specialty', my: 'အထူးပြု တစ်ခုတည်းမက နည်းပညာများစွာတစ်လျှောက် ကျယ်ပြန့်သော ရင်းနှီးမှု' },
+    ],
+    progression: {
+      en: 'Senior Engineer → Solution Architect → Principal / Enterprise Architect → CTO / VP of Engineering. This is typically a long-term destination built through years of varied engineering experience.',
+      my: 'Senior Engineer → Solution Architect → Principal / Enterprise Architect → CTO / VP of Engineering။ ဒါက ပုံမှန်အားဖြင့် Engineering အတွေ့အကြုံ မျိုးစုံနှစ်ပေါင်းများစွာဖြင့် တည်ဆောက်ထားသော ရေရှည် ပန်းတိုင်တစ်ခု ဖြစ်ပါတယ်။',
+    },
+    specializations: [
+      { en: 'Enterprise Architecture', my: 'Enterprise Architecture' },
+      { en: 'Cloud Solution Architecture', my: 'Cloud Solution Architecture' },
+      { en: 'Integration Architecture', my: 'Integration Architecture' },
+      { en: 'Security Architecture', my: 'Security Architecture' },
+    ],
+    signals: [],
+    salaryRange: {
+      en: 'Roughly $80,000–$210,000+ per year globally — typically one of the higher-paying senior technical tracks, reflecting the years of experience it requires.',
+      my: 'ကမ္ဘာတစ်ဝှမ်း နှစ်စဉ် ခန့်မှန်း $80,000–$210,000+ ခန့် — လိုအပ်သော အတွေ့အကြုံနှစ်ပေါင်းများစွာကို ထင်ဟပ်စေသော Senior Technical Track များထဲတွင် လစာအမြင့်ဆုံးထဲမှ တစ်ခု ဖြစ်ပါတယ်။',
+    },
+    demand: {
+      en: 'Steady and growing at larger organizations, as systems and cloud environments become more complex and need someone to own the big picture.',
+      my: 'System နှင့် Cloud Environment များ ပိုရှုပ်ထွေးလာပြီး ပုံကြီးကို တာဝန်ယူမည့်သူ လိုအပ်လာသည်နှင့်အမျှ လုပ်ငန်းကြီးများတွင် တည်ငြိမ်ပြီး ကြီးထွားနေပါတယ်။',
+    },
+    competitiveness: {
+      en: 'High — since this role requires broad, proven senior-level experience, competition is mostly among experienced engineers, not entry-level candidates.',
+      my: 'မြင့်မားပါတယ် — ဒီအလုပ်က ကျယ်ပြန့်ပြီး သက်သေပြထားသော Senior-level အတွေ့အကြုံ လိုအပ်တာကြောင့် ယှဉ်ပြိုင်မှုသည် Entry-level ကိုယ်စားလှယ်များထက် အတွေ့အကြုံရှိသော Engineer များကြားတွင် ပိုများပါတယ်။',
+    },
+    careerOpportunities: {
+      en: 'Concentrated at larger enterprises, consulting firms, and cloud-heavy companies — a smaller, more senior slice of the job market than general engineering roles.',
+      my: 'လုပ်ငန်းကြီးများ၊ Consulting Firm များနှင့် Cloud-heavy ကုမ္ပဏီများတွင် စုစည်းနေပါတယ် — General Engineering Role များထက် Job Market ၏ ပိုသေးငယ်ပြီး Senior ပိုများသော အစိတ်အပိုင်းတစ်ခု ဖြစ်ပါတယ်။',
+    },
+    industries: [
+      { en: 'Enterprise IT & consulting', my: 'Enterprise IT နှင့် Consulting' },
+      { en: 'Cloud & technology platforms', my: 'Cloud နှင့် နည်းပညာ Platform များ' },
+      { en: 'Finance & banking', my: 'ဘဏ္ဍာရေးနှင့် ဘဏ်လုပ်ငန်း' },
+      { en: 'Government & large-scale public sector systems', my: 'အစိုးရနှင့် အတိုင်းအတာကြီးသော အများပိုင်ကဏ္ဍ System များ' },
+    ],
+    futureOutlook: {
+      en: 'As organizations adopt more cloud, AI, and hybrid systems, the need for people who can design coherent architecture across all of it is likely to keep growing, not shrink.',
+      my: 'အဖွဲ့အစည်းများ Cloud, AI နှင့် Hybrid System များ ပိုမိုလက်ခံလာသည်နှင့်အမျှ ၎င်းတို့အားလုံးတစ်လျှောက် တသမတ်တည်း Architecture ဒီဇိုင်းရေးနိုင်သူများ လိုအပ်ချက်သည် ဆက်လက် ကြီးထွားလိမ့်မည်ဟု ယူဆရပါတယ် — မကျုံ့သွားပါ။',
+    },
+  },
 ]

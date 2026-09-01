@@ -1,4 +1,4 @@
-import { Code2, Layers, Palette, Server, Network, ShieldCheck, Cloud, Activity, Compass, Bot } from 'lucide-react'
+import { Code2, Layers, Palette, Server, Network, ShieldCheck, Cloud, Activity, Compass, Bot, Wand2, Blocks } from 'lucide-react'
 import type { ComponentType } from 'react'
 import type { LocalizedText } from '../../types/common.ts'
 import type { CareerProfile } from '../../types/career.ts'
@@ -13,9 +13,9 @@ export interface PathwayNode {
 }
 
 /**
- * The 10 careers shown on the /careers pathway map, in a difficulty-rising
+ * The careers shown on the /careers pathway map, in a difficulty-rising
  * "journey" order: foundational dev/design roles first, then infrastructure
- * and security, ending on the newer, more specialized paths.
+ * and security, then senior/generalist and AI-focused paths as the finale.
  */
 export const PATHWAY_NODES: PathwayNode[] = [
   { careerId: 'software-engineering', icon: Code2, title: { en: 'Programmer', my: 'ပရိုဂရမ်မာ' } },
@@ -27,6 +27,8 @@ export const PATHWAY_NODES: PathwayNode[] = [
   { careerId: 'cloud-devops', icon: Cloud, title: { en: 'Cloud / DevOps Engineer', my: 'Cloud / DevOps အင်ဂျင်နီယာ' } },
   { careerId: 'site-reliability-engineer', icon: Activity, title: { en: 'Site Reliability Engineer', my: 'Site Reliability အင်ဂျင်နီယာ' } },
   { careerId: 'forward-deployed-engineer', icon: Compass, title: { en: 'Forward Deployed Engineer', my: 'Forward Deployed အင်ဂျင်နီယာ' } },
+  { careerId: 'solution-architect', icon: Blocks, title: { en: 'Solution Architect', my: 'Solution Architect' } },
+  { careerId: 'prompt-engineer', icon: Wand2, title: { en: 'Prompt Engineer', my: 'Prompt Engineer' } },
   { careerId: 'ai-engineer', icon: Bot, title: { en: 'AI Engineer', my: 'AI အင်ဂျင်နီယာ' } },
 ]
 

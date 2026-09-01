@@ -226,7 +226,7 @@ export const translations: Record<'en' | 'my', Translations> = {
         eyebrow: 'Myanmar-first technology guidance',
         title: 'Find your direction in technology.',
         description:
-          "Many young people in Myanmar are interested in technology but aren't sure which path fits them. LANN helps you understand yourself, discover a technology career that fits, and follow a clear step-by-step path to get there — no experience required.",
+          "Many young people in Myanmar are interested in technology but aren't sure which path fits them. Lann (လမ်း) helps you understand yourself, discover a technology career that fits, and follow a clear step-by-step path to get there — no experience required.",
         primaryCta: 'Find My Career Path',
         secondaryCta: 'Retake Learner Voice',
       },

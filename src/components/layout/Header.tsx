@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import { Sparkles } from 'lucide-react'
 import { Container } from '../ui/Container'
+import { Logo } from './Logo'
 import { ThemeToggle } from '../controls/ThemeToggle'
 import { LanguageToggle } from '../controls/LanguageToggle'
 import { useLanguage } from '../../hooks/useLanguage'
@@ -18,8 +19,8 @@ export function Header() {
   return (
     <header className="sticky top-0 z-20 border-b border-[var(--color-border)] bg-[var(--color-bg)]/90 backdrop-blur">
       <Container className="flex h-16 items-center justify-between">
-        <NavLink to="/" className="text-lg font-semibold tracking-tight text-[var(--color-text)]">
-          {dict.appName}
+        <NavLink to="/" className="flex items-center text-[var(--color-text)]">
+          <Logo className="h-7 w-auto" />
         </NavLink>
 
         <nav className="hidden items-center gap-6 md:flex">
