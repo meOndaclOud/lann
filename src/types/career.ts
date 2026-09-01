@@ -45,6 +45,25 @@ export interface CareerProfile {
   /** Named specialization tracks a learner can grow into within this career. */
   specializations: LocalizedText[]
   signals: SignalGroup[]
+  /**
+   * The following fields power the Careers pathway page's natural-language
+   * career overview (see components/careers/CareerOverview.tsx). Optional so
+   * every existing CareerProfile stays valid — only populate them for
+   * careers actually featured on that page. Always hedge, never promise a
+   * figure or outcome (see CLAUDE.md's "Career Recommendation Language").
+   */
+  /** Approximate, non-binding global compensation range. */
+  salaryRange?: LocalizedText
+  /** How much demand exists for this role in the market right now, worldwide. */
+  demand?: LocalizedText
+  /** How competitive it typically is to break into or advance in this role. */
+  competitiveness?: LocalizedText
+  /** A rough sense of how many opportunities/openings exist for this role. */
+  careerOpportunities?: LocalizedText
+  /** Industries where this role commonly shows up. */
+  industries?: LocalizedText[]
+  /** Where this field seems to be heading, including how AI is likely to change it. */
+  futureOutlook?: LocalizedText
 }
 
 export type MatchLevel = 'strong' | 'good' | 'possible'

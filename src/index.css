@@ -37,3 +37,46 @@ body {
     background-color 200ms ease,
     color 200ms ease;
 }
+
+@keyframes lann-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Careers pathway map — a soft blue "energy" glow that travels along the
+   connecting route, kept restrained and on-brand (see CLAUDE.md's caution
+   against neon/glassmorphism) rather than a literal rainbow-neon effect. */
+@keyframes lann-pathway-glow {
+  0% {
+    background-position: 0% -40%;
+  }
+  100% {
+    background-position: 0% 140%;
+  }
+}
+
+.lann-pathway-track {
+  background: linear-gradient(to bottom, transparent, var(--color-border) 6%, var(--color-border) 94%, transparent);
+}
+
+.lann-pathway-glow {
+  background-image: linear-gradient(to bottom, transparent 0%, var(--color-primary) 12%, transparent 24%);
+  background-size: 100% 40%;
+  background-repeat: no-repeat;
+  animation: lann-pathway-glow 3.2s linear infinite;
+  filter: blur(3px);
+  opacity: 0.9;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lann-pathway-glow {
+    animation: none;
+    opacity: 0;
+  }
+}

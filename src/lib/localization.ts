@@ -123,6 +123,19 @@ export interface Translations {
     difficultyLabels: Record<'beginner-friendly' | 'moderate' | 'challenging', string>
     specializationsLabel: string
   }
+  careersPathway: {
+    eyebrow: string
+    title: string
+    subtitle: string
+    atAGlance: string
+    dayToDayLead: string
+    thrivesLead: string
+    gettingStartedLead: string
+    industriesLead: string
+    viewOverviewCta: string
+    closeCta: string
+    and: string
+  }
   topicDetail: {
     backToRoadmap: string
     whatItIsLabel: string
@@ -230,9 +243,9 @@ export const translations: Record<'en' | 'my', Translations> = {
         cta: 'Ask AI Mentor',
       },
       community: {
-        title: 'Myanmar Community',
+        title: 'Join the Community',
         description: 'Free webinars, classes, and technology community updates from Myanmar.',
-        comingSoon: "No community updates yet — check back soon, or add trusted sources in communitySources.ts.",
+        comingSoon: 'No community updates yet — check back soon.',
         viewAllCta: 'View All Updates',
       },
     },
@@ -329,6 +342,19 @@ export const translations: Record<'en' | 'my', Translations> = {
       sectionProgression: 'Career Progression',
       difficultyLabels: { 'beginner-friendly': 'Beginner-friendly', moderate: 'Moderate', challenging: 'Challenging' },
       specializationsLabel: 'Specializations',
+    },
+    careersPathway: {
+      eyebrow: 'Explore Careers',
+      title: 'Find Your Career',
+      subtitle: "Explore different paths and discover where you belong. Tap any point on the map to learn more — there's no pressure to choose right away.",
+      atAGlance: 'At a glance',
+      dayToDayLead: 'Day to day, this usually means',
+      thrivesLead: 'People who do well in this role tend to bring',
+      gettingStartedLead: "If you're just starting out, it helps to have",
+      industriesLead: "You'll typically find this role in industries like",
+      viewOverviewCta: 'View overview',
+      closeCta: 'Close',
+      and: 'and',
     },
     topicDetail: {
       backToRoadmap: 'Back to Roadmap',
@@ -579,6 +605,19 @@ export const translations: Record<'en' | 'my', Translations> = {
         challenging: 'စိန်ခေါ်မှုရှိသည်',
       },
       specializationsLabel: 'အထူးပြုနိုင်သော နယ်ပယ်များ',
+    },
+    careersPathway: {
+      eyebrow: 'Career များကို လေ့လာပါ',
+      title: 'သင့် Career ကို ရှာဖွေပါ',
+      subtitle: 'လမ်းကြောင်းမတူညီများကို လေ့လာပြီး သင်ဘယ်နေရာနှင့် ကိုက်ညီသလဲဆိုတာ ရှာဖွေပါ။ Map ပေါ်ရှိ အမှတ်တစ်ခုခုကို နှိပ်ပြီး ပိုမိုလေ့လာပါ — ချက်ချင်း ရွေးချယ်ရန် ဖိအားမရှိပါ။',
+      atAGlance: 'တစ်ချက်ကြည့်ရုံ',
+      dayToDayLead: 'နေ့စဉ်အားဖြင့် ဆိုရင်',
+      thrivesLead: 'ဒီအလုပ်မှာ ကောင်းစွာ လုပ်ဆောင်နိုင်သူများသည် ယေဘုယျအားဖြင့်',
+      gettingStartedLead: 'အစပြုနေသေးရင် ရှိထားရင် အထောက်အကူဖြစ်မည့်အရာများမှာ',
+      industriesLead: 'ဒီအလုပ်ကို ယေဘုယျအားဖြင့် ဒီလုပ်ငန်းများတွင် တွေ့ရလေ့ရှိပါတယ်',
+      viewOverviewCta: 'အကျဉ်းချုပ် ကြည့်ရန်',
+      closeCta: 'ပိတ်ရန်',
+      and: 'နှင့်',
     },
     topicDetail: {
       backToRoadmap: 'Roadmap သို့ ပြန်သွားရန်',

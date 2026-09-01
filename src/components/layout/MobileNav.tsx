@@ -1,17 +1,17 @@
 import { NavLink } from 'react-router-dom'
-import { Home, Map, BookOpen, Sparkles, MoreHorizontal } from 'lucide-react'
+import { Home, Users, BookOpen, Sparkles, MoreHorizontal } from 'lucide-react'
 import type { ComponentType } from 'react'
 import { useLanguage } from '../../hooks/useLanguage'
 
 interface MobileNavItem {
   to: string
-  key: 'home' | 'roadmap' | 'learn' | 'mentor' | 'more'
+  key: 'home' | 'community' | 'learn' | 'mentor' | 'more'
   icon: ComponentType<{ size?: number }>
 }
 
 const items: MobileNavItem[] = [
   { to: '/', key: 'home', icon: Home },
-  { to: '/dashboard', key: 'roadmap', icon: Map },
+  { to: '/community', key: 'community', icon: Users },
   { to: '/resources', key: 'learn', icon: BookOpen },
   { to: '/mentor', key: 'mentor', icon: Sparkles },
   { to: '/careers', key: 'more', icon: MoreHorizontal },

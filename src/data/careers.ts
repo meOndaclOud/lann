@@ -74,6 +74,32 @@ export const careerProfiles: CareerProfile[] = [
       { en: 'System Design', my: 'System Design' },
       { en: 'API Engineering', my: 'API Engineering' },
     ],
+    salaryRange: {
+      en: 'Roughly $50,000–$150,000+ per year globally, depending heavily on country, company, and experience — entry-level pay in Myanmar and similar markets is typically much lower than in the US or Western Europe.',
+      my: 'ကမ္ဘာတစ်ဝှမ်း နှစ်စဉ် ခန့်မှန်း $50,000–$150,000+ ခန့် ရှိပြီး နိုင်ငံ၊ ကုမ္ပဏီနှင့် အတွေ့အကြုံပေါ် အလွန်မူတည်ပါတယ် — မြန်မာနှင့် တူညီသော Market များတွင် Entry-level လစာသည် US (သို့) အနောက်ဥရောပထက် များစွာနိမ့်ကျပါတယ်။',
+    },
+    demand: {
+      en: 'Consistently high — nearly every industry needs people who can write software, and this demand has held steady for decades.',
+      my: 'အမြဲ မြင့်မားနေပါတယ် — လုပ်ငန်းတိုင်းနီးပါးက Software ရေးနိုင်သူများ လိုအပ်ပြီး ဒီလိုအပ်ချက်က နှစ်ပေါင်းများစွာ တည်ငြိမ်နေခဲ့ပါတယ်။',
+    },
+    competitiveness: {
+      en: 'Entry-level roles can be competitive in saturated job markets, but demonstrated project experience — even personal projects — helps far more than credentials alone.',
+      my: 'Market ကျပ်နေတဲ့နေရာတွေမှာ Entry-level အလုပ်တွေက ယှဉ်ပြိုင်မှု ရှိနိုင်ပေမယ့် (ကိုယ်ပိုင် Project များပင်ဖြစ်စေ) တကယ့် Project အတွေ့အကြုံက Certificate တစ်ခုတည်းထက် အများကြီး ပိုအထောက်အကူဖြစ်ပါတယ်။',
+    },
+    careerOpportunities: {
+      en: 'Very broad — software roles exist at nearly every company size, from two-person startups to global corporations, plus freelance and remote work.',
+      my: 'အလွန်ကျယ်ပြန့်ပါတယ် — Startup လူနှစ်ယောက်စာမှ ကမ္ဘာလုံးဆိုင်ရာ ကုမ္ပဏီကြီးများအထိ ကုမ္ပဏီအရွယ်အစားတိုင်းမှာ Software အလုပ်များ ရှိပြီး Freelance နှင့် Remote အလုပ်များပါ ပါဝင်ပါတယ်။',
+    },
+    industries: [
+      { en: 'Technology & software', my: 'နည်းပညာနှင့် Software' },
+      { en: 'Finance & fintech', my: 'ဘဏ္ဍာရေးနှင့် Fintech' },
+      { en: 'E-commerce & retail', my: 'E-commerce နှင့် လက်လီရောင်းချမှု' },
+      { en: 'Healthcare technology', my: 'ကျန်းမာရေးနည်းပညာ' },
+    ],
+    futureOutlook: {
+      en: 'AI coding assistants are changing how software gets written, but not removing the need for people who understand systems, logic, and how to solve real problems — the role is shifting toward higher-level thinking rather than disappearing.',
+      my: 'AI Coding Assistant တွေက Software ရေးပုံကို ပြောင်းလဲစေနေပေမယ့် System, Logic နဲ့ တကယ့် ပြဿနာဖြေရှင်းတတ်သူများ လိုအပ်မှုကို မဖယ်ရှားနိုင်ပါဘူး — ဒီအလုပ်က ပျောက်သွားမှာမဟုတ်ဘဲ ပိုမြင့်တဲ့ တွေးခေါ်မှုဘက်ကို ရွေ့လျားနေတာပါ။',
+    },
     signals: [
       {
         weight: 2,
@@ -174,6 +200,32 @@ export const careerProfiles: CareerProfile[] = [
       { en: 'API-first Development', my: 'API-first Development' },
       { en: 'Forward Deployed Engineer', my: 'Forward Deployed Engineer' },
     ],
+    salaryRange: {
+      en: 'Roughly $45,000–$140,000+ per year globally — similar to software engineering, with strong variation by region and seniority.',
+      my: 'ကမ္ဘာတစ်ဝှမ်း နှစ်စဉ် ခန့်မှန်း $45,000–$140,000+ ခန့် — Software Engineering နှင့် ဆင်တူပြီး ဒေသနှင့် Seniority ပေါ်မူတည်၍ ကွာခြားမှု ရှိပါတယ်။',
+    },
+    demand: {
+      en: 'High, especially at startups and small teams that want one person who can move across the whole product.',
+      my: 'အထူးသဖြင့် Product တစ်ခုလုံးမှာ လှုပ်ရှားနိုင်တဲ့ လူတစ်ယောက် လိုချင်တဲ့ Startup နှင့် အဖွဲ့သေးများမှာ လိုအပ်ချက် မြင့်မားပါတယ်။',
+    },
+    competitiveness: {
+      en: "Moderate — the breadth of skills required across both front-end and back-end can be a real differentiator once you've built it, but getting there takes time.",
+      my: 'အလယ်အလတ်ရှိပါတယ် — လိုအပ်တဲ့ ကျွမ်းကျင်မှု ကျယ်ပြန့်မှု (Front-end နှင့် Back-end နှစ်ခုလုံး) က ရရှိပြီးသည့်အခါ တကယ့် ကွဲပြားမှုတစ်ခု ဖြစ်နိုင်ပေမယ့် အဲဒီအထိ ရောက်ဖို့ အချိန်ယူပါတယ်။',
+    },
+    careerOpportunities: {
+      en: 'Wide-ranging, from startups building their first product to enterprises maintaining large web platforms — plus freelance and agency work.',
+      my: 'ပထမဆုံး Product တည်ဆောက်နေသော Startup များမှ Web Platform ကြီးများ ထိန်းသိမ်းနေသော လုပ်ငန်းကြီးများအထိ ကျယ်ပြန့်ပါတယ် — Freelance နှင့် Agency အလုပ်များပါ ပါဝင်ပါတယ်။',
+    },
+    industries: [
+      { en: 'Startups & tech companies', my: 'Startup နှင့် Tech ကုမ္ပဏီများ' },
+      { en: 'Digital agencies', my: 'Digital Agency များ' },
+      { en: 'E-commerce', my: 'E-commerce' },
+      { en: 'Media & content platforms', my: 'မီဒီယာနှင့် Content Platform များ' },
+    ],
+    futureOutlook: {
+      en: 'AI tools are speeding up how quickly web products can be built, which raises the bar for developers who can architect and connect systems well — not just write individual lines of code.',
+      my: 'AI Tool တွေက Web Product တည်ဆောက်နိုင်တဲ့ မြန်နှုန်းကို မြှင့်တင်နေပြီး Code လိုင်းသီးသန့် ရေးတာထက် System တွေကို ကောင်းစွာ Architect ဖန်တီးပြီး ချိတ်ဆက်နိုင်သူများအတွက် စံနှုန်းကို မြှင့်တင်နေပါတယ်။',
+    },
     signals: [
       {
         weight: 2,
@@ -379,6 +431,32 @@ export const careerProfiles: CareerProfile[] = [
       { en: 'UX Research', my: 'UX Research' },
       { en: 'Design Systems', my: 'Design System' },
     ],
+    salaryRange: {
+      en: 'Roughly $40,000–$130,000+ per year globally, with senior product designers at large tech companies often earning well above that range.',
+      my: 'ကမ္ဘာတစ်ဝှမ်း နှစ်စဉ် ခန့်မှန်း $40,000–$130,000+ ခန့် ရှိပြီး Tech ကုမ္ပဏီကြီးများရှိ Senior Product Designer များသည် ထိုအတိုင်းအတာထက် များစွာ ပိုရရှိလေ့ရှိပါတယ်။',
+    },
+    demand: {
+      en: "Steadily growing as more companies compete on user experience, though the field attracts a lot of interest, so it's not as under-the-radar as it once was.",
+      my: 'ကုမ္ပဏီများ User Experience ဖြင့် ပိုမိုယှဉ်ပြိုင်လာသည်နှင့်အမျှ တဖြည်းဖြည်း ကြီးထွားလာပါတယ် — သို့သော် ဒီနယ်ပယ်က စိတ်ဝင်စားမှု များစွာ ဆွဲဆောင်နေသောကြောင့် ယခင်ကလို သိပ်မသိကြသေးတဲ့ နယ်ပယ်တော့ မဟုတ်တော့ပါ။',
+    },
+    competitiveness: {
+      en: 'Can be competitive for junior roles, since design portfolios are easy to compare — a strong, focused portfolio matters more than a design degree.',
+      my: 'Design Portfolio များကို လွယ်ကူစွာ နှိုင်းယှဉ်နိုင်တာကြောင့် Junior အလုပ်များအတွက် ယှဉ်ပြိုင်မှု ရှိနိုင်ပါတယ် — ခိုင်မာပြီး ဦးတည်ချက်ရှိသော Portfolio က Design ဘွဲ့ထက် ပိုအရေးကြီးပါတယ်။',
+    },
+    careerOpportunities: {
+      en: 'Found at nearly any company building a digital product — tech companies, banks, e-commerce, agencies, and increasingly government or NGO digital services.',
+      my: 'Digital Product တည်ဆောက်နေသော ကုမ္ပဏီနီးပါးအားလုံးတွင် တွေ့ရပါတယ် — Tech ကုမ္ပဏီ၊ ဘဏ်၊ E-commerce၊ Agency နှင့် တဖြည်းဖြည်း တိုးများလာသော အစိုးရ/NGO Digital ဝန်ဆောင်မှုများ။',
+    },
+    industries: [
+      { en: 'Technology & product companies', my: 'နည်းပညာနှင့် Product ကုမ္ပဏီများ' },
+      { en: 'Financial services', my: 'ဘဏ္ဍာရေးဝန်ဆောင်မှုများ' },
+      { en: 'E-commerce & retail', my: 'E-commerce နှင့် လက်လီရောင်းချမှု' },
+      { en: 'Digital agencies', my: 'Digital Agency များ' },
+    ],
+    futureOutlook: {
+      en: 'AI tools can speed up producing visuals and variations, but understanding real user needs and making sound design decisions stays a distinctly human skill.',
+      my: 'AI Tool တွေက ရုပ်ပုံနှင့် Variation များ ထုတ်လုပ်ရာတွင် မြန်ဆန်စေနိုင်ပေမယ့် တကယ့် User လိုအပ်ချက်ကို နားလည်ပြီး ကောင်းမွန်သော Design ဆုံးဖြတ်ချက်ချနိုင်ခြင်းက လူသားကျွမ်းကျင်မှုအဖြစ် ဆက်လက်ကျန်ရှိနေပါတယ်။',
+    },
     signals: [
       {
         weight: 2,
@@ -578,6 +656,32 @@ export const careerProfiles: CareerProfile[] = [
       { en: 'Cloud Architecture', my: 'Cloud Architecture' },
       { en: 'DevSecOps', my: 'DevSecOps' },
     ],
+    salaryRange: {
+      en: 'Roughly $55,000–$160,000+ per year globally — one of the higher-paying paths in tech, since reliable infrastructure is critical to every business.',
+      my: 'ကမ္ဘာတစ်ဝှမ်း နှစ်စဉ် ခန့်မှန်း $55,000–$160,000+ ခန့် — ယုံကြည်စိတ်ချရသော Infrastructure သည် လုပ်ငန်းတိုင်းအတွက် အရေးကြီးသောကြောင့် Tech လမ်းကြောင်းများထဲတွင် လစာ ပိုမြင့်သော လမ်းကြောင်းတစ်ခု ဖြစ်ပါတယ်။',
+    },
+    demand: {
+      en: 'Very high and still growing — as more companies move to the cloud, they need people who can build and manage that infrastructure reliably.',
+      my: 'အလွန်မြင့်မားပြီး ဆက်လက် ကြီးထွားနေပါတယ် — ကုမ္ပဏီများ Cloud ဘက်သို့ ပိုမိုပြောင်းရွှေ့လာသည်နှင့်အမျှ ထို Infrastructure ကို ယုံကြည်စိတ်ချစွာ တည်ဆောက်ပြီး စီမံနိုင်သူများ လိုအပ်ပါတယ်။',
+    },
+    competitiveness: {
+      en: 'Moderate to high for senior roles, since production experience is hard to fake — but foundational roles are relatively accessible to motivated beginners.',
+      my: 'Production အတွေ့အကြုံကို အတုမလုပ်နိုင်တာကြောင့် Senior အလုပ်များအတွက် အလယ်အလတ်မှ မြင့်မားထိ ရှိပါတယ် — သို့သော် အခြေခံအလုပ်များက စိတ်ပါဝင်စားသော Beginner များအတွက် သက်တောင့်သက်သာ ရရှိနိုင်ပါတယ်။',
+    },
+    careerOpportunities: {
+      en: 'Strong across nearly every industry, since almost every modern company runs something in the cloud — plus a large market for remote and international roles.',
+      my: 'ခေတ်မီကုမ္ပဏီနီးပါးအားလုံးက Cloud ပေါ်တွင် တစ်ခုခု လည်ပတ်နေတာကြောင့် လုပ်ငန်းတိုင်းနီးပါးတွင် ခိုင်မာစွာ ရှိပါတယ် — Remote နှင့် နိုင်ငံတကာ အလုပ်များအတွက် Market ကြီးလည်း ပါဝင်ပါတယ်။',
+    },
+    industries: [
+      { en: 'Technology & SaaS companies', my: 'နည်းပညာနှင့် SaaS ကုမ္ပဏီများ' },
+      { en: 'Finance & banking', my: 'ဘဏ္ဍာရေးနှင့် ဘဏ်လုပ်ငန်း' },
+      { en: 'Telecommunications', my: 'ဆက်သွယ်ရေးလုပ်ငန်း' },
+      { en: 'E-commerce', my: 'E-commerce' },
+    ],
+    futureOutlook: {
+      en: 'As systems grow more complex, the need for people who can automate, secure, and reliably run infrastructure is expected to keep growing — AI is more likely to be a tool DevOps engineers use than a replacement for the role.',
+      my: 'System များ ပိုရှုပ်ထွေးလာသည်နှင့်အမျှ Infrastructure ကို Automate, Secure ပြီး ယုံကြည်စိတ်ချစွာ Run နိုင်သူများ လိုအပ်ချက် ဆက်လက် ကြီးထွားလိမ့်မည်ဟု မျှော်လင့်ရပါတယ် — AI က DevOps Engineer များ အစားထိုးမည့်အရာထက် သူတို့ သုံးမည့် Tool တစ်ခုဖြစ်နိုင်ခြေ ပိုများပါတယ်။',
+    },
     signals: [
       {
         keywords: ['cloud', 'devops', 'infrastructure', 'server', 'servers', 'deploy', 'deployment', 'linux', 'system administration', 'docker', 'kubernetes', 'ဆာဗာ', 'စနစ်', 'အခြေခံအဆောက်အအုံ'],
@@ -684,6 +788,32 @@ export const careerProfiles: CareerProfile[] = [
       { en: 'Application Security', my: 'Application Security' },
       { en: 'Digital Forensics', my: 'Digital Forensics' },
     ],
+    salaryRange: {
+      en: 'Roughly $50,000–$150,000+ per year globally, with specialized roles like penetration testing often commanding a premium.',
+      my: 'ကမ္ဘာတစ်ဝှမ်း နှစ်စဉ် ခန့်မှန်း $50,000–$150,000+ ခန့် ရှိပြီး Penetration Testing ကဲ့သို့ အထူးပြု အလုပ်များသည် ပိုများသော လစာ ရလေ့ရှိပါတယ်။',
+    },
+    demand: {
+      en: 'Very high and growing quickly, as cyber threats increase worldwide and organizations of every size invest more in security.',
+      my: 'ကမ္ဘာတစ်ဝှမ်း Cyber ခြိမ်းခြောက်မှု တိုးများလာပြီး အဖွဲ့အစည်းအရွယ်အစားတိုင်း လုံခြုံရေးအပေါ် ပိုမိုရင်းနှီးမြှုပ်နှံလာသောကြောင့် အလွန်မြင့်မားပြီး လျင်မြန်စွာ ကြီးထွားနေပါတယ်။',
+    },
+    competitiveness: {
+      en: "Entry-level roles can be competitive since many learners are drawn to the field's reputation, but hands-on lab and CTF experience helps you stand out.",
+      my: 'ဒီနယ်ပယ်၏ နာမည်ကို ကြောင့် Learner များစွာ ဆွဲဆောင်ခံရသောကြောင့် Entry-level အလုပ်များတွင် ယှဉ်ပြိုင်မှု ရှိနိုင်ပေမယ့် လက်တွေ့ Lab နှင့် CTF အတွေ့အကြုံက ထူးခြားစေနိုင်ပါတယ်။',
+    },
+    careerOpportunities: {
+      en: 'Found in nearly every sector that handles valuable data — banks, telecoms, government, healthcare, and every tech company with something worth protecting.',
+      my: 'တန်ဖိုးရှိသော Data ကိုင်တွယ်သော နယ်ပယ်နီးပါးအားလုံးတွင် တွေ့ရပါတယ် — ဘဏ်၊ ဆက်သွယ်ရေး၊ အစိုးရ၊ ကျန်းမာရေးနှင့် ကာကွယ်ရန် တန်ဖိုးရှိသည့်အရာ ရှိသော Tech ကုမ္ပဏီတိုင်း။',
+    },
+    industries: [
+      { en: 'Banking & finance', my: 'ဘဏ်လုပ်ငန်းနှင့် ဘဏ္ဍာရေး' },
+      { en: 'Government & defense', my: 'အစိုးရနှင့် ကာကွယ်ရေး' },
+      { en: 'Telecommunications', my: 'ဆက်သွယ်ရေးလုပ်ငန်း' },
+      { en: 'Healthcare', my: 'ကျန်းမာရေး' },
+    ],
+    futureOutlook: {
+      en: 'As attacks grow more sophisticated, including AI-assisted attacks, the need for skilled defenders is expected to keep rising — this is a field where human judgment stays central.',
+      my: 'တိုက်ခိုက်မှုများ ပိုပြီး ကျွမ်းကျင်လာသည်နှင့်အမျှ (AI-assisted တိုက်ခိုက်မှုများ အပါအဝင်) ကျွမ်းကျင်သော ကာကွယ်သူများ လိုအပ်ချက် ဆက်လက် မြင့်တက်လိမ့်မည်ဟု မျှော်လင့်ရပါတယ် — ဒီနယ်ပယ်မှာ လူသား ဆုံးဖြတ်ချက်က ဗဟိုချက်ဖြစ်ဆဲပါ။',
+    },
     signals: [
       {
         keywords: ['security', 'secure', 'cybersecurity', 'cyber', 'cyber security', 'hack', 'hacking', 'hacker', 'hackers', 'protect', 'protecting', 'protection', 'firewall', 'virus', 'malware', 'လုံခြုံရေး', 'ကာကွယ်'],
@@ -789,6 +919,32 @@ export const careerProfiles: CareerProfile[] = [
       { en: 'Cloud Networking', my: 'Cloud Networking' },
       { en: 'Network Automation', my: 'Network Automation' },
     ],
+    salaryRange: {
+      en: 'Roughly $40,000–$120,000+ per year globally, with senior network architects at large enterprises earning toward the top of that range.',
+      my: 'ကမ္ဘာတစ်ဝှမ်း နှစ်စဉ် ခန့်မှန်း $40,000–$120,000+ ခန့် ရှိပြီး လုပ်ငန်းကြီးများရှိ Senior Network Architect များသည် အထက်ပိုင်းရောက်အောင် ရရှိလေ့ရှိပါတယ်။',
+    },
+    demand: {
+      en: 'Steady and foundational — every connected organization depends on networking, so demand rarely disappears, even as specific technologies change.',
+      my: 'တည်ငြိမ်ပြီး အခြေခံကျပါတယ် — ချိတ်ဆက်ထားသော အဖွဲ့အစည်းတိုင်းသည် Networking အပေါ် မှီခိုနေသောကြောင့် နည်းပညာသီးခြား ပြောင်းလဲသွားသော်လည်း လိုအပ်ချက်က ရှားရှားပါးပါးသာ ပျောက်သွားပါတယ်။',
+    },
+    competitiveness: {
+      en: 'Relatively accessible for beginners with certifications like CCNA, though senior architect-level roles require years of hands-on experience.',
+      my: 'CCNA ကဲ့သို့ Certification ရှိသော Beginner များအတွက် သက်တောင့်သက်သာ ရရှိနိုင်ပေမယ့် Senior Architect-level အလုပ်များက နှစ်ပေါင်းများစွာ လက်တွေ့ အတွေ့အကြုံ လိုအပ်ပါတယ်။',
+    },
+    careerOpportunities: {
+      en: 'Every organization with an office, data center, or online service needs networking support — a stable, widespread need across industries.',
+      my: 'Office၊ Data Center (သို့) Online ဝန်ဆောင်မှုရှိသော အဖွဲ့အစည်းတိုင်းက Networking အထောက်အပံ့ လိုအပ်ပါတယ် — လုပ်ငန်းတစ်ခုလုံးတစ်လျှောက် တည်ငြိမ်ပြီး ကျယ်ပြန့်သော လိုအပ်ချက်တစ်ခု ဖြစ်ပါတယ်။',
+    },
+    industries: [
+      { en: 'Telecommunications', my: 'ဆက်သွယ်ရေးလုပ်ငန်း' },
+      { en: 'Enterprise IT', my: 'Enterprise IT' },
+      { en: 'Data centers & cloud providers', my: 'Data Center နှင့် Cloud Provider များ' },
+      { en: 'Government & education', my: 'အစိုးရနှင့် ပညာရေး' },
+    ],
+    futureOutlook: {
+      en: 'As networks grow more complex — cloud, hybrid, IoT — the field is shifting toward more automation and software-defined networking, rather than shrinking.',
+      my: 'Network များ ပိုရှုပ်ထွေးလာသည်နှင့်အမျှ (Cloud, Hybrid, IoT) ဒီနယ်ပယ်က ချုံ့သွားမည့်အစား Automation နှင့် Software-defined Networking ဘက်သို့ ပိုရွေ့လျားနေပါတယ်။',
+    },
     signals: [
       {
         keywords: ['network', 'networking', 'networks', 'wifi', 'router', 'routers', 'connection', 'connectivity', 'cabling', 'protocol', 'ကွန်ရက်', 'ချိတ်ဆက်'],
@@ -886,6 +1042,32 @@ export const careerProfiles: CareerProfile[] = [
       { en: 'Computer Vision', my: 'Computer Vision' },
       { en: 'MLOps', my: 'MLOps' },
     ],
+    salaryRange: {
+      en: 'Roughly $60,000–$180,000+ per year globally — currently one of the highest-paying and fastest-growing paths in tech, especially at companies actively building AI products.',
+      my: 'ကမ္ဘာတစ်ဝှမ်း နှစ်စဉ် ခန့်မှန်း $60,000–$180,000+ ခန့် — လက်ရှိတွင် Tech လမ်းကြောင်းများထဲတွင် လစာအမြင့်ဆုံးနှင့် အလျင်မြန်ဆုံး ကြီးထွားနေသော လမ်းကြောင်းတစ်ခု ဖြစ်ပါတယ် — အထူးသဖြင့် AI Product တွေ တက်ကြွစွာ တည်ဆောက်နေသော ကုမ္ပဏီများတွင်။',
+    },
+    demand: {
+      en: 'Extremely high right now, as organizations across nearly every industry rush to apply AI and generative AI — though this also means the field is still settling into its long-term shape.',
+      my: 'လက်ရှိအချိန်တွင် အလွန်မြင့်မားပါတယ် — လုပ်ငန်းနီးပါးအားလုံးရှိ အဖွဲ့အစည်းများသည် AI နှင့် Generative AI ကို အသုံးချရန် ပြေးနေကြသောကြောင့် ဖြစ်ပါတယ် — သို့သော် ဒီနယ်ပယ်က ရေရှည် ပုံသေဖွဲ့စည်းပုံသို့ ရောက်ရှိရန် ဆက်လက် တည်ငြိမ်နေဆဲ ဖြစ်ကြောင်းကိုလည်း ဆိုလိုပါတယ်။',
+    },
+    competitiveness: {
+      en: 'High for cutting-edge research roles, but more approachable for applied AI engineering roles that focus on using existing models well rather than building new ones from scratch.',
+      my: 'အဆင့်မြင့် သုတေသန အလုပ်များအတွက် မြင့်မားပါတယ် — သို့သော် Model အသစ် အစမှ တည်ဆောက်မည့်အစား ရှိပြီးသား Model များကို ကောင်းစွာ အသုံးချမည့် Applied AI Engineering အလုပ်များအတွက် ပိုချဉ်းကပ်ရလွယ်ကူပါတယ်။',
+    },
+    careerOpportunities: {
+      en: 'Expanding rapidly, though still concentrated in tech-forward companies and larger organizations — verified local training resources are still growing in Myanmar specifically.',
+      my: 'လျင်မြန်စွာ ကျယ်ပြန့်နေပါတယ် — သို့သော် Tech-forward ကုမ္ပဏီများနှင့် လုပ်ငန်းကြီးများတွင် ဆက်လက် စုစည်းနေဆဲ ဖြစ်ပါတယ် — မြန်မာနိုင်ငံအတွက် အတည်ပြုပြီးသော ပြည်တွင်း Training အရင်းအမြစ်များသည် ဆက်လက် ကြီးထွားနေဆဲ ဖြစ်ပါတယ်။',
+    },
+    industries: [
+      { en: 'Technology & software', my: 'နည်းပညာနှင့် Software' },
+      { en: 'Finance & fintech', my: 'ဘဏ္ဍာရေးနှင့် Fintech' },
+      { en: 'Healthcare & biotech', my: 'ကျန်းမာရေးနှင့် Biotech' },
+      { en: 'Research & academia', my: 'သုတေသနနှင့် ပညာရေး' },
+    ],
+    futureOutlook: {
+      en: "This field is, almost by definition, shaped by AI's own trajectory — demand for people who can build, apply, and responsibly evaluate AI systems is expected to keep growing as adoption spreads.",
+      my: 'ဒီနယ်ပယ်ကိုယ်တိုင်ဟာ AI ရဲ့ တိုးတက်မှုလမ်းကြောင်းအတိုင်း ပုံဖော်ခံရတာပါ — AI System များကို တည်ဆောက်၊ အသုံးချပြီး တာဝန်သိစွာ အကဲဖြတ်နိုင်သူများ လိုအပ်ချက်သည် အသုံးပြုမှု ပျံ့နှံ့လာသည်နှင့်အမျှ ဆက်လက် ကြီးထွားလိမ့်မည်ဟု မျှော်လင့်ရပါတယ်။',
+    },
     signals: [
       {
         weight: 3,
