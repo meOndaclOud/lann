@@ -54,7 +54,7 @@ export function Home() {
               <h2 className="text-lg font-semibold text-[var(--color-text)]">{dict.home.journey.heading}</h2>
               <p className="mt-1 text-sm font-medium text-[var(--color-primary)]">{careerName}</p>
             </div>
-            <ButtonLink to={`/learning-path/${selectedCareer.id}`} variant="primary">
+            <ButtonLink to={`/learning-path/${selectedCareer.id}`} variant="secondary">
               {dict.home.journey.continueCta}
               <ArrowRight size={16} />
             </ButtonLink>
@@ -86,17 +86,12 @@ export function Home() {
       )}
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
-        <Link to="/mentor" className="block">
-          <Card hoverable>
-            <Sparkles size={20} className="text-[var(--color-primary)]" />
-            <h2 className="mt-3 text-base font-semibold text-[var(--color-text)]">{dict.home.mentor.title}</h2>
-            <p className="mt-1 text-sm text-[var(--color-text-muted)]">{dict.home.mentor.description}</p>
-            <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-[var(--color-primary)]">
-              {dict.home.mentor.cta}
-              <ArrowRight size={14} />
-            </span>
-          </Card>
-        </Link>
+        <Card>
+          <Sparkles size={20} className="text-[var(--color-primary)]" />
+          <h2 className="mt-3 text-base font-semibold text-[var(--color-text)]">{dict.home.mentor.title}</h2>
+          <p className="mt-1 text-sm text-[var(--color-text-muted)]">{dict.home.mentor.description}</p>
+          <p className="mt-2 text-sm text-[var(--color-text-muted)]">{dict.home.mentor.highlight}</p>
+        </Card>
 
         <Card>
           <Users size={20} className="text-[var(--color-primary)]" />

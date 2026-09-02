@@ -16,8 +16,15 @@ export function completedTaskIdsFor(progress: LearnerProgress | null, careerId: 
   return progress.completedTaskIds ?? []
 }
 
-function isStageComplete(stage: RoadmapStage, completedTopicIds: string[]): boolean {
+/** Exported for lib/cv.ts, which needs to know which stages are fully done to list "Completed sections" honestly. */
+export function isStageComplete(stage: RoadmapStage, completedTopicIds: string[]): boolean {
   return stage.topics.length > 0 && stage.topics.every((topic) => completedTopicIds.includes(topic.id))
+}
+
+/** Completed project ids for `careerId`. Safe against progress saved before project tracking existed. */
+export function completedProjectIdsFor(progress: LearnerProgress | null, careerId: string): string[] {
+  if (!progress || progress.careerId !== careerId) return []
+  return progress.completedProjectIds ?? []
 }
 
 /**
@@ -52,7 +59,12 @@ export function toggleTopicCompletion(
   const completedTopicIds = current.includes(topicId)
     ? current.filter((id) => id !== topicId)
     : [...current, topicId]
-  return { careerId, completedTopicIds, completedTaskIds: completedTaskIdsFor(progress, careerId) }
+  return {
+    careerId,
+    completedTopicIds,
+    completedTaskIds: completedTaskIdsFor(progress, careerId),
+    completedProjectIds: completedProjectIdsFor(progress, careerId),
+  }
 }
 
 export interface OverallProgress {
@@ -88,5 +100,20 @@ export function toggleTaskCompletion(
   const completedTaskIds = currentTasks.includes(taskId)
     ? currentTasks.filter((id) => id !== taskId)
     : [...currentTasks, taskId]
-  return { careerId, completedTopicIds, completedTaskIds }
+  return { careerId, completedTopicIds, completedTaskIds, completedProjectIds: completedProjectIdsFor(progress, careerId) }
+}
+
+/** Toggles one project's completion, independent of topic/task completion. */
+export function toggleProjectCompletion(
+  progress: LearnerProgress | null,
+  careerId: string,
+  projectId: string,
+): LearnerProgress {
+  const completedTopicIds = completedTopicIdsFor(progress, careerId)
+  const completedTaskIds = completedTaskIdsFor(progress, careerId)
+  const current = completedProjectIdsFor(progress, careerId)
+  const completedProjectIds = current.includes(projectId)
+    ? current.filter((id) => id !== projectId)
+    : [...current, projectId]
+  return { careerId, completedTopicIds, completedTaskIds, completedProjectIds }
 }

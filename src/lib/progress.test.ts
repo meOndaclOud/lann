@@ -8,6 +8,8 @@ import {
   getCurrentStage,
   completedTaskIdsFor,
   toggleTaskCompletion,
+  completedProjectIdsFor,
+  toggleProjectCompletion,
 } from './progress.ts'
 import type { RoadmapStage } from '../types/roadmap.ts'
 import type { LearnerProgress } from '../types/learner.ts'
@@ -86,7 +88,12 @@ describe('getStageStatus', () => {
 describe('toggleTopicCompletion', () => {
   test('marks a topic complete when starting from no progress', () => {
     const result = toggleTopicCompletion(null, 'career-a', 'b1')
-    assert.deepEqual(result, { careerId: 'career-a', completedTopicIds: ['b1'], completedTaskIds: [] })
+    assert.deepEqual(result, {
+      careerId: 'career-a',
+      completedTopicIds: ['b1'],
+      completedTaskIds: [],
+      completedProjectIds: [],
+    })
   })
 
   test('unmarks a topic that was already complete', () => {
@@ -98,7 +105,12 @@ describe('toggleTopicCompletion', () => {
   test('switching careers starts a fresh completion list rather than mixing progress', () => {
     const progress: LearnerProgress = { careerId: 'career-a', completedTopicIds: ['b1', 'b2'] }
     const result = toggleTopicCompletion(progress, 'career-b', 'c1')
-    assert.deepEqual(result, { careerId: 'career-b', completedTopicIds: ['c1'], completedTaskIds: [] })
+    assert.deepEqual(result, {
+      careerId: 'career-b',
+      completedTopicIds: ['c1'],
+      completedTaskIds: [],
+      completedProjectIds: [],
+    })
   })
 
   test('does not mutate the progress object passed in', () => {
@@ -173,7 +185,12 @@ describe('completedTaskIdsFor', () => {
 describe('toggleTaskCompletion', () => {
   test('marks a task complete when starting from no progress', () => {
     const result = toggleTaskCompletion(null, 'career-a', 't1')
-    assert.deepEqual(result, { careerId: 'career-a', completedTopicIds: [], completedTaskIds: ['t1'] })
+    assert.deepEqual(result, {
+      careerId: 'career-a',
+      completedTopicIds: [],
+      completedTaskIds: ['t1'],
+      completedProjectIds: [],
+    })
   })
 
   test('unmarks a task that was already complete', () => {
@@ -189,6 +206,52 @@ describe('toggleTaskCompletion', () => {
   })
 })
 
+describe('completedProjectIdsFor', () => {
+  test('returns empty when there is no progress yet', () => {
+    assert.deepEqual(completedProjectIdsFor(null, 'career-a'), [])
+  })
+
+  test('returns empty for progress saved before project tracking existed', () => {
+    const progress: LearnerProgress = { careerId: 'career-a', completedTopicIds: ['b1'] }
+    assert.deepEqual(completedProjectIdsFor(progress, 'career-a'), [])
+  })
+
+  test('returns empty when progress belongs to a different career', () => {
+    const progress: LearnerProgress = { careerId: 'career-b', completedTopicIds: [], completedProjectIds: ['p1'] }
+    assert.deepEqual(completedProjectIdsFor(progress, 'career-a'), [])
+  })
+
+  test('returns the stored project ids when the career matches', () => {
+    const progress: LearnerProgress = { careerId: 'career-a', completedTopicIds: [], completedProjectIds: ['p1', 'p2'] }
+    assert.deepEqual(completedProjectIdsFor(progress, 'career-a'), ['p1', 'p2'])
+  })
+})
+
+describe('toggleProjectCompletion', () => {
+  test('marks a project complete when starting from no progress', () => {
+    const result = toggleProjectCompletion(null, 'career-a', 'p1')
+    assert.deepEqual(result, {
+      careerId: 'career-a',
+      completedTopicIds: [],
+      completedTaskIds: [],
+      completedProjectIds: ['p1'],
+    })
+  })
+
+  test('unmarks a project that was already complete', () => {
+    const progress: LearnerProgress = { careerId: 'career-a', completedTopicIds: [], completedProjectIds: ['p1', 'p2'] }
+    const result = toggleProjectCompletion(progress, 'career-a', 'p1')
+    assert.deepEqual(result.completedProjectIds, ['p2'])
+  })
+
+  test('does not disturb topic or task completion when toggling a project', () => {
+    const progress: LearnerProgress = { careerId: 'career-a', completedTopicIds: ['b1'], completedTaskIds: ['t1'] }
+    const result = toggleProjectCompletion(progress, 'career-a', 'p1')
+    assert.deepEqual(result.completedTopicIds, ['b1'])
+    assert.deepEqual(result.completedTaskIds, ['t1'])
+  })
+})
+
 describe('cross-field preservation', () => {
   test('toggling a topic does not wipe previously completed tasks', () => {
     const progress: LearnerProgress = { careerId: 'career-a', completedTopicIds: [], completedTaskIds: ['t1', 't2'] }
@@ -200,5 +263,11 @@ describe('cross-field preservation', () => {
     const progress: LearnerProgress = { careerId: 'career-a', completedTopicIds: ['b1'], completedTaskIds: [] }
     const result = toggleTaskCompletion(progress, 'career-a', 't1')
     assert.deepEqual(result.completedTopicIds, ['b1'])
+  })
+
+  test('toggling a topic does not wipe previously completed projects', () => {
+    const progress: LearnerProgress = { careerId: 'career-a', completedTopicIds: [], completedProjectIds: ['p1'] }
+    const result = toggleTopicCompletion(progress, 'career-a', 'b1')
+    assert.deepEqual(result.completedProjectIds, ['p1'])
   })
 })

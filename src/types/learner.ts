@@ -19,4 +19,11 @@ export interface LearnerProgress {
    * directly, since older stored records won't have it.
    */
   completedTaskIds?: string[]
+  /**
+   * Optional for the same reason as completedTaskIds — always read this
+   * through completedProjectIdsFor(). Powers the Portfolio/CV's honest
+   * "Projects" section (see lib/cv.ts): a project only appears there once
+   * the learner has actually marked it complete, never just because it exists.
+   */
+  completedProjectIds?: string[]
 }

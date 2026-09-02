@@ -1,14 +1,16 @@
+import { useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { CheckCircle2 } from 'lucide-react'
 import { Container } from '../components/ui/Container'
 import { Card } from '../components/ui/Card'
-import { ButtonLink } from '../components/ui/Button'
+import { Button, ButtonLink } from '../components/ui/Button'
 import { Badge } from '../components/ui/Badge'
 import { ProgressBar } from '../components/ui/ProgressBar'
 import { RoadmapTimeline } from '../components/roadmap/RoadmapTimeline'
 import { Breadcrumbs } from '../components/roadmap/Breadcrumbs'
 import { useLanguage } from '../hooks/useLanguage'
 import { storage, STORAGE_KEYS } from '../lib/storage'
-import { completedTopicIdsFor, calculateOverallProgress } from '../lib/progress.ts'
+import { completedTopicIdsFor, completedProjectIdsFor, calculateOverallProgress, toggleProjectCompletion } from '../lib/progress.ts'
 import { careerProfiles } from '../data/careers.ts'
 import { findRoadmap } from '../data/roadmaps.ts'
 import type { LearnerProgress } from '../types/learner'
@@ -54,6 +56,9 @@ function ResourceCategory({ title, resources, comingSoonText }: ResourceCategory
 export function LearningPath() {
   const { career } = useParams<{ career: string }>()
   const { dict, language } = useLanguage()
+  const [progress, setProgress] = useState<LearnerProgress | null>(() =>
+    storage.getItem<LearnerProgress | null>(STORAGE_KEYS.progress, null),
+  )
 
   const profile = career ? findProfile(career) : undefined
   const roadmap = career ? findRoadmap(career) : undefined
@@ -74,10 +79,18 @@ export function LearningPath() {
     )
   }
 
-  const progress = storage.getItem<LearnerProgress | null>(STORAGE_KEYS.progress, null)
   const completedTopicIds = completedTopicIdsFor(progress, profile.id)
+  const completedProjectIds = completedProjectIdsFor(progress, profile.id)
   const { completed, total, percent } = calculateOverallProgress(roadmap.stages, completedTopicIds)
   const careerName = language === 'my' ? profile.nameMy : profile.name
+
+  const careerId = profile.id
+
+  function handleToggleProject(projectId: string) {
+    const next = toggleProjectCompletion(progress, careerId, projectId)
+    storage.setItem(STORAGE_KEYS.progress, next)
+    setProgress(next)
+  }
 
   const resourceCategories: { key: keyof typeof roadmap.resources; resources: Resource[] }[] = [
     { key: 'myanmarSeniorResources', resources: roadmap.resources.myanmarSeniorResources },
@@ -210,25 +223,37 @@ export function LearningPath() {
 
         <h2 className="mt-6 text-lg font-semibold text-[var(--color-text)]">{dict.learningPath.projectsLabel}</h2>
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
-          {roadmap.projects.map((project) => (
-            <Card key={project.id}>
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <h3 className="text-sm font-semibold text-[var(--color-text)]">{project.title[language]}</h3>
-                <Badge>{dict.learningPath.levelLabels[project.level]}</Badge>
-              </div>
-              <p className="mt-2 text-sm text-[var(--color-text-muted)]">{project.description[language]}</p>
-              <div className="mt-3 flex flex-wrap gap-1.5">
-                {project.skills.map((skill) => (
-                  <span
-                    key={skill.en}
-                    className="rounded-full border border-[var(--color-border)] px-2 py-0.5 text-xs text-[var(--color-text-muted)]"
-                  >
-                    {skill[language]}
-                  </span>
-                ))}
-              </div>
-            </Card>
-          ))}
+          {roadmap.projects.map((project) => {
+            const isProjectComplete = completedProjectIds.includes(project.id)
+            return (
+              <Card key={project.id}>
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <h3 className="text-sm font-semibold text-[var(--color-text)]">{project.title[language]}</h3>
+                  <Badge>{dict.learningPath.levelLabels[project.level]}</Badge>
+                </div>
+                <p className="mt-2 text-sm text-[var(--color-text-muted)]">{project.description[language]}</p>
+                <div className="mt-3 flex flex-wrap gap-1.5">
+                  {project.skills.map((skill) => (
+                    <span
+                      key={skill.en}
+                      className="rounded-full border border-[var(--color-border)] px-2 py-0.5 text-xs text-[var(--color-text-muted)]"
+                    >
+                      {skill[language]}
+                    </span>
+                  ))}
+                </div>
+                <Button
+                  type="button"
+                  variant={isProjectComplete ? 'secondary' : 'primary'}
+                  onClick={() => handleToggleProject(project.id)}
+                  className="mt-4"
+                >
+                  <CheckCircle2 size={14} />
+                  {isProjectComplete ? dict.learningPath.projectCompletedLabel : dict.learningPath.markProjectCompleteCta}
+                </Button>
+              </Card>
+            )
+          })}
         </div>
 
         <h2 className="mt-10 text-lg font-semibold text-[var(--color-text)]">{dict.learningPath.resourcesLabel}</h2>

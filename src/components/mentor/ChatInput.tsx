@@ -90,7 +90,7 @@ export function ChatInput({ value, onChange, attachment, onAttachmentChange, onS
         </div>
       )}
 
-      <div className="flex items-center gap-1.5 rounded-full border border-[var(--color-border)] bg-[var(--color-bg)] p-1.5 pl-2 transition-colors duration-200 ease-out focus-within:border-[var(--color-primary)] focus-within:ring-2 focus-within:ring-[var(--color-primary)]/20">
+      <div className="flex items-center gap-1.5 rounded-full border border-[var(--color-border)] bg-[var(--color-bg)] p-1.5 pl-2 transition-colors duration-200 ease-out focus-within:border-[var(--color-primary)] focus-within:ring-2 focus-within:ring-[var(--color-primary)]/20 max-md:border-[var(--color-glass-border)] max-md:bg-[var(--color-glass-surface)] max-md:backdrop-blur-xl">
         <input
           ref={fileInputRef}
           type="file"

@@ -13,6 +13,8 @@ import { LearningTopicDetail } from './pages/LearningTopicDetail'
 import { Resources } from './pages/Resources'
 import { Community } from './pages/Community'
 import { Mentor } from './pages/Mentor'
+import { Profile } from './pages/Profile'
+import { Cv } from './pages/Cv'
 import { NotFound } from './pages/NotFound'
 
 function App() {
@@ -33,6 +35,8 @@ function App() {
               <Route path="/resources" element={<Resources />} />
               <Route path="/community" element={<Community />} />
               <Route path="/mentor" element={<Mentor />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/profile/cv" element={<Cv />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Layout>

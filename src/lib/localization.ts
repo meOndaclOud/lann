@@ -16,6 +16,7 @@ export interface Translations {
     roadmap: string
     learn: string
     more: string
+    profile: string
   }
   controls: {
     toggleTheme: string
@@ -39,6 +40,7 @@ export interface Translations {
     mentor: {
       title: string
       description: string
+      highlight: string
       cta: string
     }
     community: {
@@ -122,6 +124,8 @@ export interface Translations {
     sectionProgression: string
     difficultyLabels: Record<'beginner-friendly' | 'moderate' | 'challenging', string>
     specializationsLabel: string
+    markProjectCompleteCta: string
+    projectCompletedLabel: string
   }
   careersPathway: {
     eyebrow: string
@@ -135,6 +139,80 @@ export interface Translations {
     viewOverviewCta: string
     closeCta: string
     and: string
+  }
+  profile: {
+    eyebrow: string
+    title: string
+    subtitle: string
+    header: {
+      completeProfileTitle: string
+      completeProfileDescription: string
+      editCta: string
+    }
+    sectionAbout: string
+    emptyAbout: string
+    sectionBio: string
+    emptyBio: string
+    sectionInterests: string
+    editSections: {
+      personalInfo: string
+      professionalInfo: string
+      aboutYou: string
+      interests: string
+    }
+    cancelCta: string
+    fields: {
+      fullName: string
+      fullNamePlaceholder: string
+      professionalRole: string
+      professionalRolePlaceholder: string
+      location: string
+      locationPlaceholder: string
+      bio: string
+      bioPlaceholder: string
+      phone: string
+      phonePlaceholder: string
+      email: string
+      emailPlaceholder: string
+      interestedFields: string
+      interestedFieldsPlaceholder: string
+      certifications: string
+      certificationsPlaceholder: string
+    }
+    addCta: string
+    removeCta: string
+    saveCta: string
+    savedNotice: string
+    avatarUploadCta: string
+    avatarRemoveCta: string
+    sectionLearningProgress: string
+    noCareerSelected: { title: string; description: string; cta: string }
+    currentlyLearningLabel: string
+    levelLabel: string
+    progressLabel: string
+    continueLearningCta: string
+    sectionPortfolio: string
+    portfolioTitle: string
+    portfolioIntro: string
+    viewCvCta: string
+    emptyCv: { title: string; description: string; cta: string }
+    cv: {
+      pageEyebrow: string
+      backToProfile: string
+      downloadCta: string
+      summaryHeading: string
+      skillsHeading: string
+      learningHeading: string
+      completedSectionsLabel: string
+      completedTopicsLabel: string
+      projectsHeading: string
+      certificationsHeading: string
+      interestsHeading: string
+      aspiringPrefix: string
+      summaryLead: string
+      summaryTrail: string
+      and: string
+    }
   }
   topicDetail: {
     backToRoadmap: string
@@ -216,6 +294,7 @@ export const translations: Record<'en' | 'my', Translations> = {
       roadmap: 'Roadmap',
       learn: 'Learn',
       more: 'More',
+      profile: 'Profile',
     },
     controls: {
       toggleTheme: 'Toggle theme',
@@ -240,6 +319,7 @@ export const translations: Record<'en' | 'my', Translations> = {
       mentor: {
         title: 'AI Mentor',
         description: 'Stuck on something? Ask your AI Mentor for guidance.',
+        highlight: 'Get personalized guidance, solve problems, and take your next step with confidence.',
         cta: 'Ask AI Mentor',
       },
       community: {
@@ -342,6 +422,8 @@ export const translations: Record<'en' | 'my', Translations> = {
       sectionProgression: 'Career Progression',
       difficultyLabels: { 'beginner-friendly': 'Beginner-friendly', moderate: 'Moderate', challenging: 'Challenging' },
       specializationsLabel: 'Specializations',
+      markProjectCompleteCta: 'Mark as Complete',
+      projectCompletedLabel: 'Completed',
     },
     careersPathway: {
       eyebrow: 'Explore Careers',
@@ -355,6 +437,88 @@ export const translations: Record<'en' | 'my', Translations> = {
       viewOverviewCta: 'View overview',
       closeCta: 'Close',
       and: 'and',
+    },
+    profile: {
+      eyebrow: 'Your Profile',
+      title: 'Profile & Portfolio',
+      subtitle: 'Manage your information and watch your CV grow as you learn.',
+      header: {
+        completeProfileTitle: 'Complete your profile',
+        completeProfileDescription: 'Add your name and a few details to personalize your profile and CV.',
+        editCta: 'Edit Profile',
+      },
+      sectionAbout: 'About',
+      emptyAbout: 'No additional information added yet.',
+      sectionBio: 'Bio',
+      emptyBio: 'No bio added yet.',
+      sectionInterests: 'Interested in',
+      editSections: {
+        personalInfo: 'Personal Information',
+        professionalInfo: 'Professional Information',
+        aboutYou: 'About You',
+        interests: 'Interests',
+      },
+      cancelCta: 'Cancel',
+      fields: {
+        fullName: 'Full name',
+        fullNamePlaceholder: 'Enter your full name',
+        professionalRole: 'Professional role',
+        professionalRolePlaceholder: 'Enter your professional role',
+        location: 'Location',
+        locationPlaceholder: 'Enter your location',
+        bio: 'Short bio',
+        bioPlaceholder: 'Write a short bio',
+        phone: 'Phone number',
+        phonePlaceholder: 'Enter your phone number',
+        email: 'Email',
+        emailPlaceholder: 'Enter your email',
+        interestedFields: 'Interested in',
+        interestedFieldsPlaceholder: 'Add an interest',
+        certifications: 'Certifications',
+        certificationsPlaceholder: 'Add a certification',
+      },
+      addCta: 'Add',
+      removeCta: 'Remove',
+      saveCta: 'Save Profile',
+      savedNotice: 'Saved.',
+      avatarUploadCta: 'Upload photo',
+      avatarRemoveCta: 'Remove photo',
+      sectionLearningProgress: 'Learning Progress',
+      noCareerSelected: {
+        title: "You haven't chosen a career path yet",
+        description: 'Explore careers and start a learning path to begin tracking your progress here.',
+        cta: 'Explore Careers',
+      },
+      currentlyLearningLabel: 'Currently learning',
+      levelLabel: 'Level',
+      progressLabel: 'Progress',
+      continueLearningCta: 'Continue Learning',
+      sectionPortfolio: 'Portfolio',
+      portfolioTitle: 'My Portfolio',
+      portfolioIntro: "A living CV, built automatically from what you've actually completed.",
+      viewCvCta: 'View CV',
+      emptyCv: {
+        title: 'Your CV is not ready yet',
+        description: 'Start a learning path and complete your first section to begin building your CV.',
+        cta: 'Explore Careers',
+      },
+      cv: {
+        pageEyebrow: 'My CV',
+        backToProfile: 'Back to Profile',
+        downloadCta: 'Download CV',
+        summaryHeading: 'Summary',
+        skillsHeading: 'Skills',
+        learningHeading: 'Learning & Development',
+        completedSectionsLabel: 'Completed sections',
+        completedTopicsLabel: 'Completed topics',
+        projectsHeading: 'Projects',
+        certificationsHeading: 'Certifications',
+        interestsHeading: 'Interests',
+        aspiringPrefix: 'Aspiring',
+        summaryLead: 'currently developing foundational skills in',
+        summaryTrail: 'through a structured learning path.',
+        and: 'and',
+      },
     },
     topicDetail: {
       backToRoadmap: 'Back to Roadmap',
@@ -470,6 +634,7 @@ export const translations: Record<'en' | 'my', Translations> = {
       roadmap: 'Roadmap',
       learn: 'လေ့လာရန်',
       more: 'နောက်ထပ်',
+      profile: 'ကိုယ်ရေး',
     },
     controls: {
       toggleTheme: 'အနက်ရောင် / အလင်းရောင် ပြောင်းရန်',
@@ -494,6 +659,7 @@ export const translations: Record<'en' | 'my', Translations> = {
       mentor: {
         title: 'AI Mentor',
         description: 'တစ်ခုခုမှာ ရပ်နေရလား။ သင့် AI Mentor ကို မေးကြည့်ပါ။',
+        highlight: 'ကိုယ်ပိုင်ဆီလျော်သော လမ်းညွှန်မှု ရယူပြီး ပြဿနာများကို ဖြေရှင်းကာ ယုံကြည်စိတ်ချစွာ နောက်ခြေလှမ်းကို လှမ်းပါ။',
         cta: 'AI Mentor ကို မေးရန်',
       },
       community: {
@@ -605,6 +771,8 @@ export const translations: Record<'en' | 'my', Translations> = {
         challenging: 'စိန်ခေါ်မှုရှိသည်',
       },
       specializationsLabel: 'အထူးပြုနိုင်သော နယ်ပယ်များ',
+      markProjectCompleteCta: 'ပြီးမြောက်ကြောင်း မှတ်သားရန်',
+      projectCompletedLabel: 'ပြီးမြောက်ပြီး',
     },
     careersPathway: {
       eyebrow: 'Career များကို လေ့လာပါ',
@@ -618,6 +786,88 @@ export const translations: Record<'en' | 'my', Translations> = {
       viewOverviewCta: 'အကျဉ်းချုပ် ကြည့်ရန်',
       closeCta: 'ပိတ်ရန်',
       and: 'နှင့်',
+    },
+    profile: {
+      eyebrow: 'သင့် Profile',
+      title: 'Profile & Portfolio',
+      subtitle: 'သင့်အချက်အလက်များကို စီမံပြီး သင်လေ့လာသည်နှင့်အမျှ သင့် CV ကြီးထွားလာသည်ကို ကြည့်ရှုပါ။',
+      header: {
+        completeProfileTitle: 'သင့် Profile ကို ပြည့်စုံအောင် ပြုလုပ်ပါ',
+        completeProfileDescription: 'သင့် Profile နှင့် CV ကို ကိုယ်ပိုင်ဖြစ်စေရန် သင့်အမည်နှင့် အသေးစိတ်အချို့ ထည့်သွင်းပါ။',
+        editCta: 'Profile ပြင်ဆင်ရန်',
+      },
+      sectionAbout: 'အကြောင်းအရာ',
+      emptyAbout: 'နောက်ထပ် အချက်အလက် ထည့်သွင်းရသေးပါ။',
+      sectionBio: 'ကိုယ်ရေးအကျဉ်းချုပ်',
+      emptyBio: 'ကိုယ်ရေးအကျဉ်းချုပ် မထည့်ရသေးပါ။',
+      sectionInterests: 'စိတ်ဝင်စားသော နယ်ပယ်များ',
+      editSections: {
+        personalInfo: 'ကိုယ်ရေးအချက်အလက်',
+        professionalInfo: 'အလုပ်အကိုင်ဆိုင်ရာ အချက်အလက်',
+        aboutYou: 'သင့်အကြောင်း',
+        interests: 'စိတ်ဝင်စားသော နယ်ပယ်များ',
+      },
+      cancelCta: 'ပယ်ဖျက်ရန်',
+      fields: {
+        fullName: 'အမည်အပြည့်အစုံ',
+        fullNamePlaceholder: 'အမည်အပြည့်အစုံ ရေးထည့်ပါ',
+        professionalRole: 'အလုပ်အကိုင် ရာထူး',
+        professionalRolePlaceholder: 'အလုပ်အကိုင် ရာထူး ရေးထည့်ပါ',
+        location: 'တည်နေရာ',
+        locationPlaceholder: 'တည်နေရာ ရေးထည့်ပါ',
+        bio: 'ကိုယ်ရေးအကျဉ်းချုပ်',
+        bioPlaceholder: 'ကိုယ်ရေးအကျဉ်းချုပ် ရေးပါ',
+        phone: 'ဖုန်းနံပါတ်',
+        phonePlaceholder: 'ဖုန်းနံပါတ် ရေးထည့်ပါ',
+        email: 'အီးမေးလ်',
+        emailPlaceholder: 'အီးမေးလ် ရေးထည့်ပါ',
+        interestedFields: 'စိတ်ဝင်စားသော နယ်ပယ်များ',
+        interestedFieldsPlaceholder: 'စိတ်ဝင်စားသော နယ်ပယ် ထည့်ပါ',
+        certifications: 'Certification များ',
+        certificationsPlaceholder: 'Certification ထည့်ပါ',
+      },
+      addCta: 'ထည့်ရန်',
+      removeCta: 'ဖယ်ရှားရန်',
+      saveCta: 'Profile သိမ်းရန်',
+      savedNotice: 'သိမ်းဆည်းပြီးပါပြီ။',
+      avatarUploadCta: 'ဓာတ်ပုံ တင်ရန်',
+      avatarRemoveCta: 'ဓာတ်ပုံ ဖယ်ရှားရန်',
+      sectionLearningProgress: 'လေ့လာမှု တိုးတက်မှု',
+      noCareerSelected: {
+        title: 'Career လမ်းကြောင်း မရွေးချယ်ရသေးပါ',
+        description: 'Career များကို လေ့လာပြီး Learning Path တစ်ခု စတင်ပါ — သင့်တိုးတက်မှုကို ဒီနေရာမှာ စတင် Track လုပ်နိုင်ပါမယ်။',
+        cta: 'Career များ လေ့လာရန်',
+      },
+      currentlyLearningLabel: 'လက်ရှိ လေ့လာနေသည်',
+      levelLabel: 'အဆင့်',
+      progressLabel: 'တိုးတက်မှု',
+      continueLearningCta: 'ဆက်လက် လေ့လာရန်',
+      sectionPortfolio: 'Portfolio',
+      portfolioTitle: 'ကျွန်ုပ်၏ Portfolio',
+      portfolioIntro: 'သင် တကယ် ပြီးမြောက်ခဲ့သည့်အရာများမှ အလိုအလျောက် တည်ဆောက်ထားသော CV တစ်ခု။',
+      viewCvCta: 'CV ကြည့်ရန်',
+      emptyCv: {
+        title: 'သင့် CV အသင့်မဖြစ်သေးပါ',
+        description: 'Learning Path တစ်ခု စတင်ပြီး ပထမဆုံး Section ကို ပြီးမြောက်အောင် လုပ်ပါ — သင့် CV စတင် တည်ဆောက်နိုင်ပါမယ်။',
+        cta: 'Career များ လေ့လာရန်',
+      },
+      cv: {
+        pageEyebrow: 'ကျွန်ုပ်၏ CV',
+        backToProfile: 'Profile သို့ ပြန်သွားရန်',
+        downloadCta: 'CV ဒေါင်းလုဒ်လုပ်ရန်',
+        summaryHeading: 'အနှစ်ချုပ်',
+        skillsHeading: 'ကျွမ်းကျင်မှုများ',
+        learningHeading: 'လေ့လာမှုနှင့် ဖွံ့ဖြိုးတိုးတက်မှု',
+        completedSectionsLabel: 'ပြီးမြောက်ထားသော Section များ',
+        completedTopicsLabel: 'ပြီးမြောက်ထားသော ခေါင်းစဉ်များ',
+        projectsHeading: 'Project များ',
+        certificationsHeading: 'Certification များ',
+        interestsHeading: 'စိတ်ဝင်စားသော နယ်ပယ်များ',
+        aspiringPrefix: 'ဖြစ်လိုသော',
+        summaryLead: 'အောက်ပါ အခြေခံ ကျွမ်းကျင်မှုများကို လက်ရှိ ဖွံ့ဖြိုးတည်ဆောက်နေသည်',
+        summaryTrail: '— ဖွဲ့စည်းထားသော Learning Path တစ်ခုမှတစ်ဆင့်။',
+        and: 'နှင့်',
+      },
     },
     topicDetail: {
       backToRoadmap: 'Roadmap သို့ ပြန်သွားရန်',

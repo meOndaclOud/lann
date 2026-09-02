@@ -6,6 +6,7 @@ export const STORAGE_KEYS = {
   selectedCareer: 'selectedCareer',
   progress: 'progress',
   learnerAnswers: 'learnerAnswers',
+  profile: 'profile',
 } as const
 
 function getItem<T>(key: string, fallback: T): T {
